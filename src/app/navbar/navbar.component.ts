@@ -1,3 +1,4 @@
+import { CookieService } from 'ngx-cookie-service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,10 +9,10 @@ import { Component, OnInit } from '@angular/core';
 export class NavbarComponent implements OnInit {
   sign = false;
   logout = true;
-  constructor() { }
+  constructor(private cookieService: CookieService) { }
 
   ngOnInit() {
-    const isTokenSet = localStorage.getItem('token');
+    const isTokenSet = this.cookieService.get('token');
     if (isTokenSet) {
       this.sign = true;
       this.logout = false;

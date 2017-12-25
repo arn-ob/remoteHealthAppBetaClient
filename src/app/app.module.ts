@@ -21,6 +21,7 @@ import { SignupNurseComponent } from './signup-nurse/signup-nurse.component';
 import { SignupPatientComponent } from './signup-patient/signup-patient.component';
 import { LogoutComponent } from './logout/logout.component';
 import { SqlpostService } from './services/sqlpost/sqlpost.service';
+import { AdminComponent } from './admin/admin.component';
 
 
 const appRoutes: Routes = [
@@ -52,6 +53,7 @@ const appRoutes: Routes = [
     SignupNurseComponent,
     SignupPatientComponent,
     LogoutComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,

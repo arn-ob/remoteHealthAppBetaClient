@@ -1,3 +1,4 @@
+import { CookieService } from 'ngx-cookie-service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
@@ -9,12 +10,13 @@ import { Location } from '@angular/common';
 })
 export class LogoutComponent implements OnInit {
 
-  constructor( private router: Router, private location: Location) { }
+  constructor(private router: Router,
+    private location: Location,
+    private cookieService: CookieService
+  ) { }
 
   ngOnInit() {
-    localStorage.clear();
-    localStorage.removeItem('token');
-    localStorage.removeItem('isRefresh');
+    this.cookieService.deleteAll();
     this.location.go('/');
     location.reload();
     // this.router.navigated = false;
