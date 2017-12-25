@@ -1,0 +1,40 @@
+<app-homepage [hidden]="log">
+</app-homepage>
+
+<div [hidden]="!log">
+  <table class="table">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">Build Version</th>
+        <th scope="col">Message</th>
+        <th scope="col">Update Changes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Build Version(Update Number) 23.12.4:42</td>
+        <td>n/a</td>
+        <td>n/a</td>
+      </tr>
+
+      <tr>
+        <td>Build Version(Update Number) 25.12.12:49</td>
+        <td>Some Known Bug Fixed</td>
+        <td>
+            Angular service fixed, Request-time loading added, Node js response issue solved , Session problem fixed, Page Navagation
+            Problem Solved
+        </td>
+      </tr>
+
+      <tr>
+        <td>Build Version(Update Number) 25.12.2:30</td>
+        <td>Fixing Azure DB problem</td>
+        <td>
+            Pool problem solved. Still unstable. 
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+
+</div>
