@@ -1,3 +1,5 @@
+import { JwtHelper } from 'angular2-jwt';
+import { AuthenticationService } from './services/auth/authentication.service';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { NgModule } from '@angular/core';
@@ -68,7 +70,9 @@ const appRoutes: Routes = [
   ],
   providers: [
     SqlpostService,
-    CookieService
+    CookieService,
+    AuthenticationService,
+    JwtHelper
   ],
   bootstrap: [AppComponent]
 })

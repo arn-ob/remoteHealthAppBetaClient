@@ -18,9 +18,6 @@ export class LogoutComponent implements OnInit {
   ngOnInit() {
     this.cookieService.deleteAll();
     this.location.go('/');
-    location.reload();
-    // this.router.navigated = false;
-    // this.router.navigateByUrl('/');
   }
 
 }

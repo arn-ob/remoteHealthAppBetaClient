@@ -1,3 +1,9 @@
+<div [hidden]="!Server_Error">
+  <div class="alert alert-primary" role="alert">
+    <p>Server Error</p>
+  </div>
+</div>
+
 <div class="login-page" [hidden]="!Requested">
   <div class="form">
     <form class="login-form" (ngSubmit)="loginReq()" #heroForm="ngForm">
@@ -17,7 +23,7 @@
 
   <div class="text-center mt-lg-5 ml-2">
     <div class="loader ml-2"></div>
-
+    
   </div>
 
 </div>

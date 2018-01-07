@@ -1,25 +1,30 @@
 <nav class="navbar fixed-bottom navbar-expand navbar-dark bg-dark">
   <a class="navbar-brand" routerLink="">Health App</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
+    aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarCollapse">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" routerLink="">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" routerLink="">Home
+          <span class="sr-only">(current)</span>
+        </a>
       </li>
-      <li class="nav-item" [hidden] = "sign">
-        <a class="nav-link" routerLink="/signin">Sign in</a>
+      <li class="nav-item" *ngIf="!authenticationService.sign_in_validation()" >
+        <a class="nav-link" routerLink="/signin" >Sign in</a>
       </li>
-      <li class="nav-item" [hidden] = "sign">
+      <li class="nav-item" *ngIf="!authenticationService.sign_in_validation()">
         <a class="nav-link" routerLink="/signup">sign up</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" routerLink="/search">Search</a>
       </li>
-      <li class="nav-item" [hidden] = "logout">
-        <a class="nav-link" routerLink="/logout">Logout</a>
-      </li>
+      <div>
+        <li class="nav-item" *ngIf="authenticationService.sign_in_validation()">
+          <a class="nav-link" routerLink="/logout">Logout</a>
+        </li>
+      </div>
       <li class="nav-item">
         <span class="nav-link">Build Version(Update Number) 27.12.12:30</span>
       </li>
