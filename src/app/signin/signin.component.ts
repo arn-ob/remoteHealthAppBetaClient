@@ -25,6 +25,7 @@ export class SigninComponent {
   Requested = true;
   checkingReq = false;
   Server_Error = false;
+  user_not_found = false;
   // Constructor Function
   constructor(
     private service: SqlpostService,
@@ -45,11 +46,16 @@ export class SigninComponent {
     console.log(data);
     this.service.postRequest('login', data).subscribe(
     response => {
+      if (response.json().token === null) {
+        this.Requested = true;
+        this.user_not_found = true;
+      }else {
         // this.success = true; // Show the success message
         this.msg = 'Please Wait for Conformation';
         console.log(response.json().token);
         this.cookieService.set('token', response.json().token);
         this.authenticationService.sign_in();
+        }
       },
       err => {
       this.Server_Error = true;

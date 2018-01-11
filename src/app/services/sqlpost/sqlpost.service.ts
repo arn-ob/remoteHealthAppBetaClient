@@ -13,7 +13,7 @@ export class SqlpostService {
   // Linkext= Extandation of the request Link
   // data= Send request Data
   postRequest(Linkext, data) {
-    return  this.http.post(this.Posturl + Linkext, data);
+    return this.http.post(this.Posturl + Linkext, data);
 
   }
 

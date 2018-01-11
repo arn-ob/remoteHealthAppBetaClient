@@ -14,11 +14,13 @@ export class AuthenticationService {
     private router: Router
   ) { }
 
+  // Delete token
   logout() {
     this.cookieService.delete('token');
     this.cookieService.deleteAll();
   }
 
+  // After sign-in page. From a valid process then nav to home page
   sign_in() {
     const jwtHelper = new JwtHelper();
     const token = this.cookieService.get('token');
@@ -28,6 +30,7 @@ export class AuthenticationService {
     this.router.navigate(['/']);
   }
 
+  // Get token from cookie and check that validation
   sign_in_validation() {
     const jwtHelper = new JwtHelper();
     const token = this.cookieService.get('token');
@@ -39,6 +42,11 @@ export class AuthenticationService {
       console.log(a);
       return true;
     }
+  }
+
+  // 1st sign-up process was done. Navegate to nxt signup process
+  just_signup(res) {
+    this.cookieService.set('token', res);
   }
 
 

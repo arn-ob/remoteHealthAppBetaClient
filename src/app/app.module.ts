@@ -12,7 +12,6 @@ import { CookieService } from 'ngx-cookie-service';
 import { AppComponent } from './app.component';
 import { FormComponent } from './form/form.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { HomepageComponent } from './homepage/homepage.component';
 import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
 import { SearchComponent } from './search/search.component';
@@ -24,6 +23,9 @@ import { SignupPatientComponent } from './signup-patient/signup-patient.componen
 import { LogoutComponent } from './logout/logout.component';
 import { SqlpostService } from './services/sqlpost/sqlpost.service';
 import { AdminComponent } from './admin/admin.component';
+import { DoctorInformationComponent } from './doctor-information/doctor-information.component';
+import { NurseInformationComponent } from './nurse-information/nurse-information.component';
+import { PatientsInformationComponent } from './patients-information/patients-information.component';
 
 
 const appRoutes: Routes = [
@@ -35,8 +37,8 @@ const appRoutes: Routes = [
   { path: 'signup-patient', component: SignupPatientComponent },
   { path: 'signin', component: SigninComponent },
   { path: 'logout', component: LogoutComponent },
-  { path: 'homepage', component: HomepageComponent },
   { path: 'datasearch', component: SearchComponent },
+  { path: 'doctor-information', component: DoctorInformationComponent },
   { path: '**', component: NotFoundComponent }
 ];
 
@@ -45,7 +47,6 @@ const appRoutes: Routes = [
     AppComponent,
     FormComponent,
     NotFoundComponent,
-    HomepageComponent,
     SigninComponent,
     SignupComponent,
     SearchComponent,
@@ -56,6 +57,9 @@ const appRoutes: Routes = [
     SignupPatientComponent,
     LogoutComponent,
     AdminComponent,
+    DoctorInformationComponent,
+    NurseInformationComponent,
+    PatientsInformationComponent,
   ],
   imports: [
     BrowserModule,
