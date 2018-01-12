@@ -17,13 +17,13 @@ export class SignupPatientComponent {
   pass: any;
   email: any;
   Repass: any;
-  
+
   patients = true;
   error = false;
   success = false;
   formVisible = true;
   checking = false;
-  
+
   // Constructor Function
   constructor(
     private service: SqlpostService,
