@@ -15,7 +15,7 @@ export class IndexComponent implements OnInit {
   constructor(
     private location: Location,
     private cookieService: CookieService,
-    private authenticationService: AuthenticationService
+    private authentication: AuthenticationService
   ) { }
 
   ngOnInit() {

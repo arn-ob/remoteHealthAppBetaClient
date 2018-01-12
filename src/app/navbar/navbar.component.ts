@@ -12,7 +12,7 @@ export class NavbarComponent implements OnInit {
   logout = true;
   constructor(
     private cookieService: CookieService,
-    private authenticationService: AuthenticationService
+    private auth: AuthenticationService
   ) { }
 
   ngOnInit() {

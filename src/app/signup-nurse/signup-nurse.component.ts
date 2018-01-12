@@ -14,7 +14,8 @@ export class SignupNurseComponent {
   name: any;
   pass: any;
   email: any;
-
+  Repass: any;
+  
   nurse = true;
   error = false;
   success = false;
