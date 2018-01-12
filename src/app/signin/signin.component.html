@@ -7,7 +7,7 @@
 <div class="login-page" [hidden]="!Requested">
   <div class="form">
     <form class="login-form" (ngSubmit)="loginReq()" #heroForm="ngForm">
-      <input type="text" placeholder="username" [(ngModel)]="username" name="username" />
+      <input type="text" placeholder="Email" [(ngModel)]="email" name="email" />
       <input type="password" placeholder="password" [(ngModel)]="password" name="password" />
       <button>login</button>
       <div [hidden]="!user_not_found">
@@ -27,8 +27,8 @@
 <div class="container" [hidden]="!checkingReq">
 
   <div class="text-center mt-lg-5 ml-2">
-    <div class="loader ml-2"></div>
-    
+    <div class="loader ml-2">
+    </div>
   </div>
 
 </div>

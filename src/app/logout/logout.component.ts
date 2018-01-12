@@ -8,6 +8,7 @@ import { Location } from '@angular/common';
   templateUrl: './logout.component.html',
   styleUrls: ['./logout.component.css']
 })
+
 export class LogoutComponent implements OnInit {
 
   constructor(private router: Router,
@@ -17,7 +18,7 @@ export class LogoutComponent implements OnInit {
 
   ngOnInit() {
     this.cookieService.deleteAll();
-    this.location.go('/');
+    this.router.navigate(['/']);
   }
 
 }

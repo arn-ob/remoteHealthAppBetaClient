@@ -39,7 +39,7 @@ export class AuthenticationService {
       return false;
     }else {
       const a = jwtHelper.isTokenExpired(token);
-      console.log(a);
+      // console.log(a);
       return true;
     }
   }

@@ -1,3 +1,4 @@
+import { ValidationCheckService } from './services/validation-check/validation-check.service';
 import { JwtHelper } from 'angular2-jwt';
 import { AuthenticationService } from './services/auth/authentication.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -76,7 +77,8 @@ const appRoutes: Routes = [
     SqlpostService,
     CookieService,
     AuthenticationService,
-    JwtHelper
+    JwtHelper,
+    ValidationCheckService
   ],
   bootstrap: [AppComponent]
 })

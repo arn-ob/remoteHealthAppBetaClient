@@ -18,7 +18,7 @@ import { CookieService } from 'ngx-cookie-service';
 export class SigninComponent {
 
   // Variable Decliear
-  username: any;
+  email: any;
   password: any;
   msg: any;
   message;
@@ -42,7 +42,7 @@ export class SigninComponent {
 
     this.Requested = false;
     this.checkingReq = true;
-    const data = { username: this.username, password: this.password};
+    const data = { email: this.email, password: this.password};
     console.log(data);
     this.service.postRequest('login', data).subscribe(
     response => {

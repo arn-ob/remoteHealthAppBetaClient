@@ -2,11 +2,10 @@
   <div class="form">
     <p>Signup as a Doctor</p>
     <form class="login-form" (ngSubmit)="ReqSubmit()" #heroForm="ngForm">
-      <input type="text" placeholder="username" [(ngModel)]="name" name="name" />
-      <input type="password" placeholder="password" [(ngModel)]="pass" name="pass" />
       <input type="email" placeholder="email" [(ngModel)]="email" name="email" />
-      <button>Request Submit</button>
-      <!-- <button (click) = "ReqSubmit()">Request Submit</button> -->
+      <input type="password" placeholder="password" [(ngModel)]="pass" name="pass" />
+      <input type="password" placeholder="password validation Added later" [(ngModel)]="Repass" name="Repass" />
+     <button>Request Submit</button>
     </form>
   </div>
 </div>

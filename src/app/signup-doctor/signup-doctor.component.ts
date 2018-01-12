@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
 import { COMPOSITION_BUFFER_MODE } from '@angular/forms/src/directives/default_value_accessor';
 import { SqlpostService } from '../services/sqlpost/sqlpost.service';
+import { ValidationCheckService } from '../services/validation-check/validation-check.service';
 
 @Component({
   selector: 'app-signup-doctor',
@@ -16,6 +17,8 @@ export class SignupDoctorComponent {
   pass: any;
   email: any;
   msg: any;
+  doctor = true;
+
   error = false;
   checking = false;
   success = false;
@@ -24,14 +27,15 @@ export class SignupDoctorComponent {
   constructor(
     private service: SqlpostService,
     private router: Router,
-    private auth: AuthenticationService
+    private auth: AuthenticationService,
+    private uservalidation: ValidationCheckService
   ) {}
   // onSubmit() { this.submitted = true; }
   ReqSubmit() {
     this.checking = true;
     this.formVisible = false; // Hide the form
 
-    const data = { username: this.name, password: this.pass, email: this.email };
+    const data = { email: this.email, password: this.pass, isdoctor: this.doctor};
 
     this.service.postRequest('insert-doctor', data).subscribe(
     response => {

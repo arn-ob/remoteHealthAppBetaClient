@@ -1,6 +1,8 @@
+import { Router } from '@angular/router';
 import { SqlpostService } from './../services/sqlpost/sqlpost.service';
 import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
+import { AuthenticationService } from '../services/auth/authentication.service';
 
 @Component({
   selector: 'app-signup-patient',
@@ -20,8 +22,11 @@ export class SignupPatientComponent {
   formVisible = true;
   checking = false;
   // Constructor Function
-  constructor(private service: SqlpostService) {
-  }
+  constructor(
+    private service: SqlpostService,
+    private router: Router,
+    private auth: AuthenticationService
+  ) {}
   // onSubmit() { this.submitted = true; }
   ReqSubmit() {
     this.checking = true;
@@ -31,8 +36,9 @@ export class SignupPatientComponent {
     this.service.postRequest('insert-patient', data).subscribe(
       response => {
         this.checking = false;
-        this.success = true;
-        this.msg = 'Please Wait for Conformation';
+        this.success = true; // Show the success message
+        this.auth.just_signup(response.json().token);
+        this.router.navigate(['/doctor-information']);
       },
       err => {
         this.checking = false;

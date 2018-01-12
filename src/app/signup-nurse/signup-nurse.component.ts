@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { AuthenticationService } from './../services/auth/authentication.service';
 import { SqlpostService } from './../services/sqlpost/sqlpost.service';
 import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
@@ -18,7 +20,11 @@ export class SignupNurseComponent {
   formVisible = true;
   checking = false;
   // Constructor Function
-  constructor(private service: SqlpostService) {
+  constructor(
+    private service: SqlpostService,
+    private auth: AuthenticationService,
+    private router: Router
+  ) {
   }
   // onSubmit() { this.submitted = true; }
   ReqSubmit() {
@@ -30,7 +36,8 @@ export class SignupNurseComponent {
       response => {
         this.checking = false;
         this.success = true; // Show the success message
-        this.msg = 'Please Wait for Conformation';
+        this.auth.just_signup(response.json().token);
+        this.router.navigate(['/doctor-information']);
       },
       err => {
         // console.log('error got: ' + err);
