@@ -1,4 +1,28 @@
-<form (ngSubmit)="Request()" #heroForm="ngForm">
+<div class="container" [hidden]="!checkLoginInfo">
+  <div class="login-page">
+    <div class="form">
+      <div class="alert alert-primary" role="alert">
+       Enter the registration ID to complete the registration Process
+      </div>
+      <form class="login-form" (ngSubmit)="check()">
+        <input type="text" class="form-control"  placeholder="Registration ID" [(ngModel)]="regID" name="regID" required/>
+        
+        <div class="alert alert-danger mt-2 mb-2" role="alert" [hidden]="!NotFound">
+          Check the ID
+       </div>
+        
+        <button class="btn btn-primary mt-2" type="submit">Check Valid</button>
+      </form>
+     
+    </div>
+  </div>
+</div>
+
+
+<div [hidden]="!validationRequestDone">
+  <p> Patients Information </p>
+
+  <form (ngSubmit)="Request()" #heroForm="ngForm">
     <div class="row">
       <div class="col-md-6 mb-3">
         <label for="validationDefault01">First name</label>
@@ -26,8 +50,8 @@
                class="form-control" 
                id="prefix" 
                placeholder="Title Prefix" 
-               [(ngModel)]="Title_Prefix" 
-               name="Title_Prefix"/>
+               [(ngModel)]="title_prefix" 
+               name="title_prefix"/>
       </div>
       <div class="col-md-3 mb-3">
         <label for="validationDefault03">Day</label>
@@ -89,4 +113,4 @@
   
     <button class="btn btn-primary" type="submit">Submit form</button>
   </form>
-  
+</div>

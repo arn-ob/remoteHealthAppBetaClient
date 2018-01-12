@@ -14,7 +14,8 @@ export class SignupNurseComponent {
   name: any;
   pass: any;
   email: any;
-  msg: any;
+
+  nurse = true;
   error = false;
   success = false;
   formVisible = true;
@@ -29,7 +30,7 @@ export class SignupNurseComponent {
   // onSubmit() { this.submitted = true; }
   ReqSubmit() {
     this.checking = true;
-    const data = { username: this.name, password: this.pass, email: this.email };
+    const data = { email: this.email, password: this.pass, isnurse: this.nurse};
     console.log(data);
     this.formVisible = false; // Hide the form
     this.service.postRequest('insert-nurse', data).subscribe(
@@ -37,13 +38,12 @@ export class SignupNurseComponent {
         this.checking = false;
         this.success = true; // Show the success message
         this.auth.just_signup(response.json().token);
-        this.router.navigate(['/doctor-information']);
+        this.router.navigate(['/nurse-information']);
       },
       err => {
         // console.log('error got: ' + err);
         this.checking = false;
         this.error = true;
-        this.msg = 'Somthing got error please try again later';
       }
     );
   }

@@ -16,7 +16,8 @@ export class SignupPatientComponent {
   name: any;
   pass: any;
   email: any;
-  msg: any;
+
+  patients = true;
   error = false;
   success = false;
   formVisible = true;
@@ -30,7 +31,7 @@ export class SignupPatientComponent {
   // onSubmit() { this.submitted = true; }
   ReqSubmit() {
     this.checking = true;
-    const data = { username: this.name, password: this.pass, email: this.email };
+    const data = { email: this.email, password: this.pass, ispatients: this.patients};
     console.log(data);
     this.formVisible = false; // Hide the form
     this.service.postRequest('insert-patient', data).subscribe(
@@ -38,12 +39,11 @@ export class SignupPatientComponent {
         this.checking = false;
         this.success = true; // Show the success message
         this.auth.just_signup(response.json().token);
-        this.router.navigate(['/doctor-information']);
+        this.router.navigate(['/patients-information']);
       },
       err => {
         this.checking = false;
         this.error = true;
-        this.msg = 'Somthing got error please try again later';
       });
   }
 }

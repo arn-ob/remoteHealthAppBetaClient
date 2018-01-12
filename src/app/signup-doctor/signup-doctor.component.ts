@@ -16,9 +16,9 @@ export class SignupDoctorComponent {
   name: any;
   pass: any;
   email: any;
-  msg: any;
-  doctor = true;
+ 
 
+  doctor = true;
   error = false;
   checking = false;
   success = false;
@@ -30,6 +30,7 @@ export class SignupDoctorComponent {
     private auth: AuthenticationService,
     private uservalidation: ValidationCheckService
   ) {}
+
   // onSubmit() { this.submitted = true; }
   ReqSubmit() {
     this.checking = true;

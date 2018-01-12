@@ -40,6 +40,8 @@ const appRoutes: Routes = [
   { path: 'logout', component: LogoutComponent },
   { path: 'datasearch', component: SearchComponent },
   { path: 'doctor-information', component: DoctorInformationComponent },
+  { path: 'nurse-information', component: NurseInformationComponent },
+  { path: 'patients-information', component: PatientsInformationComponent },
   { path: '**', component: NotFoundComponent }
 ];
 

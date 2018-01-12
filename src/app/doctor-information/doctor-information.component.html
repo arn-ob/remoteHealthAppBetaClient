@@ -18,10 +18,10 @@
   </div>
 </div>
 
+<div [hidden]="!validationRequestDone">
+<p>Doctor Information</p>
 
-
-
-<form (ngSubmit)="Request()" #heroForm="ngForm" [hidden]="!validationRequestDone">
+<form (ngSubmit)="Request()" #heroForm="ngForm" >
   <div class="row">
     <div class="col-md-6 mb-3">
       <label for="validationDefault01">First name</label>
@@ -78,3 +78,4 @@
 
   <button class="btn btn-primary" type="submit">Submit form</button>
 </form>
+</div>
