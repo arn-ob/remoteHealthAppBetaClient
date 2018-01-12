@@ -16,7 +16,6 @@ export class SignupDoctorComponent {
   name: any;
   pass: any;
   email: any;
- 
 
   doctor = true;
   error = false;
