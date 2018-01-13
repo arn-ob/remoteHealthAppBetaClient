@@ -14,19 +14,19 @@ import { AppComponent } from './app.component';
 import { FormComponent } from './form/form.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { SigninComponent } from './signin/signin.component';
-import { SignupComponent } from './signup/signup.component';
+import { SignupComponent } from './sign-up-process/signup/signup.component';
 import { SearchComponent } from './search/search.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { IndexComponent } from './index/index.component';
-import { SignupDoctorComponent } from './signup-doctor/signup-doctor.component';
-import { SignupNurseComponent } from './signup-nurse/signup-nurse.component';
-import { SignupPatientComponent } from './signup-patient/signup-patient.component';
+import { SignupDoctorComponent } from './sign-up-process/signup-doctor/signup-doctor.component';
+import { SignupNurseComponent } from './sign-up-process/signup-nurse/signup-nurse.component';
+import { SignupPatientComponent } from './sign-up-process/signup-patient/signup-patient.component';
 import { LogoutComponent } from './logout/logout.component';
 import { SqlpostService } from './services/sqlpost/sqlpost.service';
 import { AdminComponent } from './admin/admin.component';
-import { DoctorInformationComponent } from './doctor-information/doctor-information.component';
-import { NurseInformationComponent } from './nurse-information/nurse-information.component';
-import { PatientsInformationComponent } from './patients-information/patients-information.component';
+import { DoctorInformationComponent } from './sign-up-process/doctor-information/doctor-information.component';
+import { NurseInformationComponent } from './sign-up-process/nurse-information/nurse-information.component';
+import { PatientsInformationComponent } from './sign-up-process/patients-information/patients-information.component';
 
 
 const appRoutes: Routes = [

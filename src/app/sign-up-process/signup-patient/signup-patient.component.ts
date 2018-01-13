@@ -1,8 +1,8 @@
 import { Router } from '@angular/router';
-import { SqlpostService } from './../services/sqlpost/sqlpost.service';
+import { SqlpostService } from './../../services/sqlpost/sqlpost.service';
 import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
-import { AuthenticationService } from '../services/auth/authentication.service';
+import { AuthenticationService } from '../../services/auth/authentication.service';
 
 @Component({
   selector: 'app-signup-patient',

@@ -1,16 +1,14 @@
-import { SqlpostService } from './../services/sqlpost/sqlpost.service';
+import { ValidationCheckService } from './../../services/validation-check/validation-check.service';
+import { SqlpostService } from './../../services/sqlpost/sqlpost.service';
 import { Component, OnInit } from '@angular/core';
-import { ValidationCheckService } from '../services/validation-check/validation-check.service';
-
 
 @Component({
-  selector: 'app-doctor-information',
-  templateUrl: './doctor-information.component.html',
-  styleUrls: ['./doctor-information.component.css']
+  selector: 'app-nurse-information',
+  templateUrl: './nurse-information.component.html',
+  styleUrls: ['./nurse-information.component.css']
 })
+export class NurseInformationComponent implements OnInit {
 
-
-export class DoctorInformationComponent implements OnInit {
   first_name: any;
   last_name: any;
   title_prefix: any;
@@ -64,6 +62,7 @@ export class DoctorInformationComponent implements OnInit {
       em_number: this.em_number
     };
 
+    // Service not working. Need to set it to backend
     console.log(data);
     this.service.postRequest('login', data).subscribe(
     response => {

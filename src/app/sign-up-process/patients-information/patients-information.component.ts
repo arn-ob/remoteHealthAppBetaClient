@@ -1,13 +1,13 @@
-import { ValidationCheckService } from './../services/validation-check/validation-check.service';
-import { SqlpostService } from './../services/sqlpost/sqlpost.service';
+import { SqlpostService } from './../../services/sqlpost/sqlpost.service';
+import { ValidationCheckService } from './../../services/validation-check/validation-check.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-nurse-information',
-  templateUrl: './nurse-information.component.html',
-  styleUrls: ['./nurse-information.component.css']
+  selector: 'app-patients-information',
+  templateUrl: './patients-information.component.html',
+  styleUrls: ['./patients-information.component.css']
 })
-export class NurseInformationComponent implements OnInit {
+export class PatientsInformationComponent implements OnInit {
 
   first_name: any;
   last_name: any;
@@ -79,4 +79,3 @@ export class NurseInformationComponent implements OnInit {
     });
   }
 }
-
