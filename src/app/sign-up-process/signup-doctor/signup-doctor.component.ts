@@ -18,14 +18,15 @@ export class SignupDoctorComponent {
   pass: any;
   email: any;
   Repass: any;
-
   ifNotClick: any;
   disabled: any;
+
   doctor = true;
   error = false;
   checking = false;
   success = false;
   formVisible = true;
+
   // Constructor Function
   constructor(
     private service: SqlpostService,
@@ -37,28 +38,28 @@ export class SignupDoctorComponent {
   // onSubmit() { this.submitted = true; }
   ReqSubmit() {
     if (this.disabled === true) {
-    this.checking = true;
-    this.formVisible = false; // Hide the form
+      this.checking = true;
+      this.formVisible = false; // Hide the form
 
-    const data = { email: this.email, password: this.pass, isdoctor: this.doctor};
+      const data = { email: this.email, password: this.pass, isdoctor: this.doctor};
 
-    this.service.postRequest('insert-doctor', data).subscribe(
-    response => {
+      this.service.postRequest('insert-doctor', data).subscribe(
+      response => {
+          this.checking = false;
+          this.success = true; // Show the success message
+          this.auth.just_signup(response.json().token);
+          this.router.navigate(['/doctor-information']);
+      },
+      err => {
+        // console.log('error got: ' + err);
         this.checking = false;
-        this.success = true; // Show the success message
-        this.auth.just_signup(response.json().token);
-        this.router.navigate(['/doctor-information']);
-    },
-    err => {
-      // console.log('error got: ' + err);
-      this.checking = false;
-      this.error = true;
+        this.error = true;
+      }
+    );
+    }else {
+      this.ifNotClick = true;
     }
-  );
-  }else {
-    this.ifNotClick = true;
   }
-}
 
   i_agree($event) {
     console.log($event.explicitOriginalTarget.checked);

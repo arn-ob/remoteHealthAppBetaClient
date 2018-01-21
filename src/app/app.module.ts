@@ -13,7 +13,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { AppComponent } from './app.component';
 import { FormComponent } from './form/form.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { SigninComponent } from './signin/signin.component';
+import { SigninComponent } from './sign-in-process/signin/signin.component';
 import { SignupComponent } from './sign-up-process/signup/signup.component';
 import { SearchComponent } from './search/search.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -27,6 +27,9 @@ import { AdminComponent } from './admin/admin.component';
 import { DoctorInformationComponent } from './sign-up-process/doctor-information/doctor-information.component';
 import { NurseInformationComponent } from './sign-up-process/nurse-information/nurse-information.component';
 import { PatientsInformationComponent } from './sign-up-process/patients-information/patients-information.component';
+import { RoleSelectionComponent } from './sign-in-process/role-selection/role-selection.component';
+import { RoleSelectService } from './services/role-select/role-select.service';
+import { ExistingUserNewUserRegComponent } from './sign-up-process/existing-user/existing-user-new-user-reg.component';
 
 
 const appRoutes: Routes = [
@@ -42,6 +45,8 @@ const appRoutes: Routes = [
   { path: 'doctor-information', component: DoctorInformationComponent },
   { path: 'nurse-information', component: NurseInformationComponent },
   { path: 'patients-information', component: PatientsInformationComponent },
+  { path: 'select-role', component: RoleSelectionComponent },
+  { path: 'existing-user', component: ExistingUserNewUserRegComponent },
   { path: '**', component: NotFoundComponent }
 ];
 
@@ -63,6 +68,8 @@ const appRoutes: Routes = [
     DoctorInformationComponent,
     NurseInformationComponent,
     PatientsInformationComponent,
+    RoleSelectionComponent,
+    ExistingUserNewUserRegComponent,
   ],
   imports: [
     BrowserModule,
@@ -80,7 +87,8 @@ const appRoutes: Routes = [
     CookieService,
     AuthenticationService,
     JwtHelper,
-    ValidationCheckService
+    ValidationCheckService,
+    RoleSelectService
   ],
   bootstrap: [AppComponent]
 })

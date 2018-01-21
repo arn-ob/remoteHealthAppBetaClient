@@ -1,5 +1,5 @@
-import { AuthenticationService } from '../services/auth/authentication.service';
-import { SqlpostService } from '../services/sqlpost/sqlpost.service';
+import { AuthenticationService } from '../../services/auth/authentication.service';
+import { SqlpostService } from '../../services/sqlpost/sqlpost.service';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';

@@ -26,8 +26,8 @@ export class AuthenticationService {
     const token = this.cookieService.get('token');
     const a = jwtHelper.decodeToken(token);
     console.log('Token');
-    console.log(a);
-    this.router.navigate(['/']);
+    console.log(a.token.reg_id);
+    this.router.navigate(['/select-role']);
   }
 
   // Get token from cookie and check that validation
@@ -47,6 +47,13 @@ export class AuthenticationService {
   // 1st sign-up process was done. Navegate to nxt signup process
   just_signup(res) {
     this.cookieService.set('token', res);
+  }
+
+  give_decode_token() {
+    const jwtHelper = new JwtHelper();
+    const token = this.cookieService.get('token');
+    const decoded_token = jwtHelper.decodeToken(token);
+    return decoded_token;
   }
 
 

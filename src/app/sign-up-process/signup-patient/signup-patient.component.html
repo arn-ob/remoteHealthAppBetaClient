@@ -5,6 +5,12 @@
         <input type="email" placeholder="email" [(ngModel)]="email" name="email" />
         <input type="password" placeholder="password" [(ngModel)]="pass" name="pass" />
         <input type="password" placeholder="password validation Added later" [(ngModel)]="Repass" name="Repass" />
+        <input type="checkbox" (click)="i_agree($event)">
+        <p>Agree this</p>
+        <div [hidden]="!ifNotClick">
+          <p class="ml-2">agree the terms and condition</p>
+        </div>
+        
         <button>Request Submit</button>
       </form>
     </div>
