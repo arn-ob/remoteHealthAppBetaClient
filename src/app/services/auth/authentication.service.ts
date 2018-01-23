@@ -49,11 +49,26 @@ export class AuthenticationService {
     this.cookieService.set('token', res);
   }
 
+  // Decode token for getting token data
   give_decode_token() {
     const jwtHelper = new JwtHelper();
     const token = this.cookieService.get('token');
     const decoded_token = jwtHelper.decodeToken(token);
     return decoded_token;
+  }
+
+  // for return reg_id from token
+  give_req_id_from_token() {
+    const jwtHelper = new JwtHelper();
+    const token = this.cookieService.get('token');
+    const decoded_token = jwtHelper.decodeToken(token);
+    console.log(decoded_token.reg_id);
+    return decoded_token.reg_id;
+  }
+
+  save_token(res) {
+    this.cookieService.deleteAll();
+    this.cookieService.set('token', res);
   }
 
 

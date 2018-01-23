@@ -12,21 +12,21 @@
     <p class="img_wrapper" *ngIf="role.isDoctor()">
       <img src="http://localhost:5000/image/signup/doctor.jpg">
       <span>
-        <input routerLink="/signup-doctor" type="button" value="Doctor">
+        <input routerLink="/doctor-dashboard" type="button" value="Doctor">
       </span>
     </p>
 
     <p class="img_wrapper" *ngIf="role.isNurse()">
       <img src="http://localhost:5000/image/signup/nurse.png">
       <span>
-        <input routerLink="/signup-nurse" type="button" value="Nurse">
+        <input routerLink="/nurse-dashboard" type="button" value="Nurse">
       </span>
     </p>
 
     <p class="img_wrapper" *ngIf="role.isPatients()">
       <img src="http://localhost/image/signup/patient2.png">
       <span>
-        <input routerLink="/signup-patient" type="button" value="Patient">
+        <input routerLink="/patients-dashboard" type="button" value="Patient">
       </span>
     </p>
 

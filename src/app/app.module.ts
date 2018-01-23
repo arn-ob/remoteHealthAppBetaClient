@@ -30,6 +30,9 @@ import { PatientsInformationComponent } from './sign-up-process/patients-informa
 import { RoleSelectionComponent } from './sign-in-process/role-selection/role-selection.component';
 import { RoleSelectService } from './services/role-select/role-select.service';
 import { ExistingUserNewUserRegComponent } from './sign-up-process/existing-user/existing-user-new-user-reg.component';
+import { PatientsDashboardComponent } from './_dashboard/patients/patients-dashboard/patients-dashboard.component';
+import { DoctorDashboardComponent } from './_dashboard/doctor/doctor-dashboard/doctor-dashboard.component';
+import { NurseDashboardComponent } from './_dashboard/nurse/nurse-dashboard/nurse-dashboard.component';
 
 
 const appRoutes: Routes = [
@@ -47,6 +50,9 @@ const appRoutes: Routes = [
   { path: 'patients-information', component: PatientsInformationComponent },
   { path: 'select-role', component: RoleSelectionComponent },
   { path: 'existing-user', component: ExistingUserNewUserRegComponent },
+  { path: 'doctor-dashboard', component: DoctorDashboardComponent },
+  { path: 'nurse-dashboard', component: NurseInformationComponent },
+  { path: 'patients-dashboard', component: PatientsDashboardComponent },
   { path: '**', component: NotFoundComponent }
 ];
 
@@ -70,6 +76,9 @@ const appRoutes: Routes = [
     PatientsInformationComponent,
     RoleSelectionComponent,
     ExistingUserNewUserRegComponent,
+    PatientsDashboardComponent,
+    DoctorDashboardComponent,
+    NurseDashboardComponent
   ],
   imports: [
     BrowserModule,

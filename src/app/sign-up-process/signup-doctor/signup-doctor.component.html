@@ -6,36 +6,36 @@
       <input type="password" placeholder="password" [(ngModel)]="pass" name="pass" />
       <input type="password" placeholder="password validation Added later" [(ngModel)]="Repass" name="Repass">
 
-            <input type="checkbox" (click)="i_agree($event)">
-              <p>Agree this</p>
-            <div [hidden]="!ifNotClick">
-              <p class="ml-2">agree the terms and condition</p>
-            </div>
-         
-      
-    
-          <button>Request Submit</button>
+      <input type="checkbox" (click)="i_agree($event)">
+      <p>Agree this</p>
+      <div [hidden]="!ifNotClick">
+        <p class="ml-2">agree the terms and condition</p>
+      </div>
+
+
+
+      <button>Request Submit</button>
     </form>
-    </div>
-    </div>
+  </div>
+</div>
 
-    <div class="container">
+<div class="container">
 
-      <div [hidden]="!error">
-        <div class="alert alert-primary" role="alert">
-          Server Error
-        </div>
-        <div class="text-center">
-          <button type="button" class="btn btn-danger" routerLink="/signup">Go Back</button>
-        </div>
+  <div [hidden]="!error">
+    <div class="alert alert-primary" role="alert">
+      Server Error
+    </div>
+    <div class="text-center">
+      <button type="button" class="btn btn-danger" routerLink="/signup">Go Back</button>
+    </div>
+  </div>
+
+  <div [hidden]="!checking" class="mt-3">
+    <div class="alert alert-warning" role="alert">
+      <div class="text-center">
+        Requesting, Please Wait
       </div>
-
-      <div [hidden]="!checking" class="mt-3">
-        <div class="alert alert-warning" role="alert">
-          <div class="text-center">
-            Requesting, Please Wait
-          </div>
-        </div>
-      </div>
-
     </div>
+  </div>
+
+</div>

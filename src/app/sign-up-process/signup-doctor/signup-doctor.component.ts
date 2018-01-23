@@ -33,7 +33,7 @@ export class SignupDoctorComponent {
     private router: Router,
     private auth: AuthenticationService,
     private uservalidation: ValidationCheckService
-  ) {}
+  ) { }
 
   // onSubmit() { this.submitted = true; }
   ReqSubmit() {
@@ -41,22 +41,22 @@ export class SignupDoctorComponent {
       this.checking = true;
       this.formVisible = false; // Hide the form
 
-      const data = { email: this.email, password: this.pass, isdoctor: this.doctor};
+      const data = { email: this.email, password: this.pass, isdoctor: this.doctor };
 
       this.service.postRequest('insert-doctor', data).subscribe(
-      response => {
+        response => {
           this.checking = false;
           this.success = true; // Show the success message
           this.auth.just_signup(response.json().token);
           this.router.navigate(['/doctor-information']);
-      },
-      err => {
-        // console.log('error got: ' + err);
-        this.checking = false;
-        this.error = true;
-      }
-    );
-    }else {
+        },
+        err => {
+          // console.log('error got: ' + err);
+          this.checking = false;
+          this.error = true;
+        }
+      );
+    } else {
       this.ifNotClick = true;
     }
   }
@@ -66,7 +66,7 @@ export class SignupDoctorComponent {
     this.disabled = $event.explicitOriginalTarget.checked;
     if ($event.explicitOriginalTarget.checked === false) {
       this.ifNotClick = false;
-    }else {
+    } else {
       this.ifNotClick = true;
     }
     console.log(this.ifNotClick);

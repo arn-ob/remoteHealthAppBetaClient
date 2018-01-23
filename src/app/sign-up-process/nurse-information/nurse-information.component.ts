@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { AuthenticationService } from './../../services/auth/authentication.service';
 import { ValidationCheckService } from './../../services/validation-check/validation-check.service';
 import { SqlpostService } from './../../services/sqlpost/sqlpost.service';
 import { Component, OnInit } from '@angular/core';
@@ -20,6 +22,7 @@ export class NurseInformationComponent implements OnInit {
   em_number: any;
   regID: any;
 
+  store_id;
   NotFound = false;
   checkLoginInfo = true;
   validationRequestDone = false;
@@ -30,7 +33,9 @@ export class NurseInformationComponent implements OnInit {
   'September', 'October', 'November', 'December'];
   constructor(
     private service: SqlpostService,
-    private validation: ValidationCheckService
+    private validation: ValidationCheckService,
+    private auth: AuthenticationService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -49,8 +54,10 @@ export class NurseInformationComponent implements OnInit {
   }
 
   Request() {
+    this.store_id = this.auth.give_req_id_from_token();
 
     const data = {
+      reg_id : this.store_id,
       first_name: this.first_name,
       last_name: this.last_name,
       title_prefix: this.title_prefix,
@@ -64,14 +71,15 @@ export class NurseInformationComponent implements OnInit {
 
     // Service not working. Need to set it to backend
     console.log(data);
-    this.service.postRequest('login', data).subscribe(
+    this.service.postRequest('insert-nurse-finalize', data).subscribe(
     response => {
       if (response.json().token === null) {
 
       }else {
         // this.success = true; // Show the success message
         console.log(response.json().token);
-
+        this.auth.save_token(response.json().token);
+        this.router.navigate(['/nurse-dashboard']);
       }
     },
     err => {

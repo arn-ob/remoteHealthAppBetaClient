@@ -2,18 +2,18 @@
   <div class="login-page">
     <div class="form">
       <div class="alert alert-primary" role="alert">
-       Enter the registration ID to complete the registration Process
+        Enter the registration ID to complete the registration Process
       </div>
       <form class="login-form" (ngSubmit)="check()">
-        <input type="text" class="form-control"  placeholder="Registration ID" [(ngModel)]="regID" name="regID" required/>
-        
+        <input type="text" class="form-control" placeholder="Registration ID" [(ngModel)]="regID" name="regID" required/>
+
         <div class="alert alert-danger mt-2 mb-2" role="alert" [hidden]="!NotFound">
           Check the ID
-       </div>
-        
+        </div>
+
         <button class="btn btn-primary mt-2" type="submit">Check Valid</button>
       </form>
-     
+
     </div>
   </div>
 </div>
@@ -26,91 +26,49 @@
     <div class="row">
       <div class="col-md-6 mb-3">
         <label for="validationDefault01">First name</label>
-        <input type="text" 
-               class="form-control" 
-               id="validationDefault01" 
-               placeholder="First name" 
-               [(ngModel)]="first_name" 
-               name="first_name"/>
+        <input type="text" class="form-control" id="validationDefault01" placeholder="First name" [(ngModel)]="first_name" name="first_name"
+        />
       </div>
       <div class="col-md-6 mb-3">
         <label for="validationDefault02">Last name</label>
-        <input type="text" 
-               class="form-control" 
-               id="validationDefault02" 
-               placeholder="Last name" 
-               [(ngModel)]="last_name" 
-               name="last_name">
+        <input type="text" class="form-control" id="validationDefault02" placeholder="Last name" [(ngModel)]="last_name" name="last_name">
       </div>
     </div>
     <div class="row">
       <div class="col-md-3 mb-3">
         <label for="validationDefault03">Title Prefix</label>
-        <input type="text" 
-               class="form-control" 
-               id="prefix" 
-               placeholder="Title Prefix" 
-               [(ngModel)]="title_prefix" 
-               name="title_prefix"/>
+        <input type="text" class="form-control" id="prefix" placeholder="Title Prefix" [(ngModel)]="title_prefix" name="title_prefix"
+        />
       </div>
       <div class="col-md-3 mb-3">
         <label for="validationDefault03">Day</label>
-        <input type="text" 
-               class="form-control" 
-               id="day" 
-               placeholder="Day" 
-               [(ngModel)]="day" 
-               name="day"/>
+        <input type="text" class="form-control" id="day" placeholder="Day" [(ngModel)]="day" name="day" />
       </div>
-  
+
       <div class="col-md-3 mb-3">
         <label for="validationDefault03">Month</label>
         <select id="disabledSelect" class="form-control" [(ngModel)]="month" name="month">
           <option *ngFor="let month of months">{{month}}</option>
         </select>
       </div>
-  
+
       <div class="col-md-3 mb-3">
         <label for="validationDefault05">Year</label>
-        <input type="text" 
-               class="form-control" 
-               id="validationDefault05" 
-               placeholder="Year"  
-               [(ngModel)]="year" 
-               name="year">
+        <input type="text" class="form-control" id="validationDefault05" placeholder="Year" [(ngModel)]="year" name="year">
       </div>
+    <div class="col-md-3 mb-3">
+      <label for="validationDefault04">Contact Number</label>
+      <input type="text" class="form-control" id="validationDefault04" placeholder="Contact Number" [(ngModel)]="con_number" name="con_number"
+      />
     </div>
-    <div class="row">
-      <div class="col-md-6 mb-3">
-        <label for="validationDefault03">Registration No</label>
-        <input type="text" 
-               class="form-control" 
-               id="validationDefault03" 
-               placeholder="Registration No" 
-               [(ngModel)]="reg" 
-               name="reg"/>
-      </div>
-  
-      <div class="col-md-3 mb-3">
-        <label for="validationDefault04">Contact Number</label>
-        <input type="text" 
-               class="form-control" 
-               id="validationDefault04" 
-               placeholder="Contact Number" 
-               [(ngModel)]="con_number" 
-               name="con_number"/>
-      </div>
-  
-      <div class="col-md-3 mb-3">
-        <label for="validationDefault05">Emergency Contact Number</label>
-        <input type="text" class="form-control" 
-               id="validationDefault05" 
-               placeholder="Emergency Contact Number" 
-               required [(ngModel)]="em_number" 
-               name="em_number"/>
-      </div>
+
+    <div class="col-md-3 mb-3">
+      <label for="validationDefault05">Emergency Contact Number</label>
+      <input type="text" class="form-control" id="validationDefault05" placeholder="Emergency Contact Number" required [(ngModel)]="em_number"
+        name="em_number" />
     </div>
-  
-    <button class="btn btn-primary" type="submit">Submit form</button>
-  </form>
+
+</div>
+<button class="btn btn-primary" type="submit">Submit form</button>
+</form>
 </div>
