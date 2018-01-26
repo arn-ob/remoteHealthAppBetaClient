@@ -1,22 +1,21 @@
-<p>
-  Existing user information</p>
+<p>Existing user information</p>
 
 <form (ngSubmit)="Request()" #heroForm="ngForm">
 
-  <div [hidden] = "selectRole">
-  <p>Select Role</p>
-  <div *ngIf="!role.isDoctor()">
-    <input type="checkbox" aria-label="Checkbox for following text input" value="doctor" (click)="active($event)"> Doctor
-  </div>
+  <div [hidden]="selectRole">
+    <p>Select Role</p>
+    <div *ngIf="!role.isDoctor()">
+      <input type="checkbox" aria-label="Checkbox for following text input" value="doctor" (click)="active($event)"> Doctor
+    </div>
 
-  <div *ngIf="!role.isNurse()">
-    <input type="checkbox" aria-label="Checkbox for following text input" value="nurse" (click)="active($event)"> Nurse
-  </div>
+    <div *ngIf="!role.isNurse()">
+      <input type="checkbox" aria-label="Checkbox for following text input" value="nurse" (click)="active($event)"> Nurse
+    </div>
 
-  <div *ngIf="!role.isPatients()">
-    <input type="checkbox" aria-label="Checkbox for following text input" value="patients" (click)="active($event)"> Patients
+    <div *ngIf="!role.isPatients()">
+      <input type="checkbox" aria-label="Checkbox for following text input" value="patients" (click)="active($event)"> Patients
+    </div>
   </div>
-</div>
 
   <div [hidden]="show">
     <div class="row">
@@ -72,8 +71,9 @@
           name="em_number" />
       </div>
     </div>
-  
 
-  <button class="btn btn-primary" type="submit">Submit form</button>
-</div>
+
+    <button class="btn btn-primary" type="submit">Submit form</button>
+  </div>
+  <br><br><br><br><br><br>
 </form>

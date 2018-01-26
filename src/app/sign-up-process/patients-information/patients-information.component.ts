@@ -1,5 +1,5 @@
 import { Router } from '@angular/router';
-import { SqlpostService } from './../../services/sqlpost/sqlpost.service';
+import { SqlpostService } from './../../services/SQL-post/sqlpost.service';
 import { ValidationCheckService } from './../../services/validation-check/validation-check.service';
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../../services/auth/authentication.service';
@@ -24,7 +24,7 @@ export class PatientsInformationComponent implements OnInit {
   NotFound = false;
   checkLoginInfo = true;
   validationRequestDone = false;
-  store_id;
+
   months: any[] = [
     'January', 'February',
     'March', 'April', 'May', 'June', 'July', 'August',
@@ -53,9 +53,9 @@ export class PatientsInformationComponent implements OnInit {
 
   Request() {
 
-    this.store_id = this.auth.give_req_id_from_token();
+    const store_id = this.auth.give_req_id_from_token();
     const data = {
-      reg_id: this.store_id,
+      reg_id: store_id,
       first_name: this.first_name,
       last_name: this.last_name,
       title_prefix: this.title_prefix,

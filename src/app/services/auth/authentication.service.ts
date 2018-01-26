@@ -62,8 +62,8 @@ export class AuthenticationService {
     const jwtHelper = new JwtHelper();
     const token = this.cookieService.get('token');
     const decoded_token = jwtHelper.decodeToken(token);
-    console.log(decoded_token.reg_id);
-    return decoded_token.reg_id;
+    // console.log(decoded_token.reg_id);
+    return decoded_token.token.reg_id;
   }
 
   save_token(res) {

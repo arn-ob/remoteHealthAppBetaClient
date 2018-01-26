@@ -1,7 +1,7 @@
 import { Router } from '@angular/router';
 import { AuthenticationService } from './../../services/auth/authentication.service';
 import { ValidationCheckService } from './../../services/validation-check/validation-check.service';
-import { SqlpostService } from './../../services/sqlpost/sqlpost.service';
+import { SqlpostService } from './../../services/SQL-post/sqlpost.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

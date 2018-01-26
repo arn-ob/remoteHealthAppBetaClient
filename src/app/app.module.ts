@@ -22,7 +22,7 @@ import { SignupDoctorComponent } from './sign-up-process/signup-doctor/signup-do
 import { SignupNurseComponent } from './sign-up-process/signup-nurse/signup-nurse.component';
 import { SignupPatientComponent } from './sign-up-process/signup-patient/signup-patient.component';
 import { LogoutComponent } from './logout/logout.component';
-import { SqlpostService } from './services/sqlpost/sqlpost.service';
+import { SqlpostService } from './services/SQL-post/sqlpost.service';
 import { AdminComponent } from './admin/admin.component';
 import { DoctorInformationComponent } from './sign-up-process/doctor-information/doctor-information.component';
 import { NurseInformationComponent } from './sign-up-process/nurse-information/nurse-information.component';
@@ -51,7 +51,7 @@ const appRoutes: Routes = [
   { path: 'select-role', component: RoleSelectionComponent },
   { path: 'existing-user', component: ExistingUserNewUserRegComponent },
   { path: 'doctor-dashboard', component: DoctorDashboardComponent },
-  { path: 'nurse-dashboard', component: NurseInformationComponent },
+  { path: 'nurse-dashboard', component: NurseDashboardComponent },
   { path: 'patients-dashboard', component: PatientsDashboardComponent },
   { path: '**', component: NotFoundComponent }
 ];

@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
 import { COMPOSITION_BUFFER_MODE } from '@angular/forms/src/directives/default_value_accessor';
-import { SqlpostService } from '../../services/sqlpost/sqlpost.service';
+import { SqlpostService } from '../../services/SQL-post/sqlpost.service';
 import { ValidationCheckService } from '../../services/validation-check/validation-check.service';
 
 @Component({

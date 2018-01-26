@@ -7,12 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./role-selection.component.css']
 })
 export class RoleSelectionComponent implements OnInit {
-
+  AllTrue: boolean;
   constructor(
     private role: RoleSelectService
   ) { }
 
   ngOnInit() {
+    this.AllTrue = this.role.isAllTrue();
   }
 
 }

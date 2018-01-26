@@ -1,10 +1,12 @@
 import { AuthenticationService } from '../../services/auth/authentication.service';
-import { SqlpostService } from '../../services/sqlpost/sqlpost.service';
+import { SqlpostService } from '../../services/SQL-post/sqlpost.service';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Http } from '@angular/http';
 import { CookieService } from 'ngx-cookie-service';
+import { OnDestroy } from '@angular/core/src/metadata/lifecycle_hooks';
+import { Subscription } from 'rxjs/Subscription';
 
 
 
@@ -15,7 +17,7 @@ import { CookieService } from 'ngx-cookie-service';
   styleUrls: ['./signin.component.css'],
   encapsulation: ViewEncapsulation.Emulated
 })
-export class SigninComponent {
+export class SigninComponent implements OnDestroy {
 
   // Variable Decliear
   email: any;
@@ -26,6 +28,8 @@ export class SigninComponent {
   checkingReq = false;
   Server_Error = false;
   user_not_found = false;
+
+  subscription: Subscription;
   // Constructor Function
   constructor(
     private service: SqlpostService,
@@ -43,27 +47,36 @@ export class SigninComponent {
     this.Requested = false;
     this.checkingReq = true;
     const data = { email: this.email, password: this.password};
-    console.log(data);
-    this.service.postRequest('login', data).subscribe(
+
+    // console.log(data);
+
+    this.subscription = this.service.postRequest('login', data).subscribe(
     response => {
       if (response.json().token === null) {
-        this.Requested = true;
-        this.user_not_found = true;
+          this.Requested = true;
+          this.user_not_found = true;
+
       }else {
-        // this.success = true; // Show the success message
-        this.msg = 'Please Wait for Conformation';
-        console.log(response.json().token);
-        this.cookieService.set('token', response.json().token);
-        this.authenticationService.sign_in();
+
+          // this.success = true; // Show the success message
+          this.msg = 'Please Wait for Conformation';
+          console.log(response.json().token);
+          this.cookieService.set('token', response.json().token);
+          this.authenticationService.sign_in();
         }
       },
       err => {
-      this.Server_Error = true;
-      this.Requested = true;
-      this.checkingReq = false;
-      this.msg = 'Somthing got error please try again later';
-      console.log(err);
+          this.Server_Error = true;
+          this.Requested = true;
+          this.checkingReq = false;
+          this.msg = 'Somthing got error please try again later';
+          console.log(err);
       }
     );
+  }
+
+  ngOnDestroy() {
+    console.log('Unsubscribe For login subscription');
+    this.subscription.unsubscribe();
   }
 }

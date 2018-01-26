@@ -1,5 +1,5 @@
 import { Router } from '@angular/router';
-import { SqlpostService } from './../../services/sqlpost/sqlpost.service';
+import { SqlpostService } from './../../services/SQL-post/sqlpost.service';
 import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
 import { AuthenticationService } from '../../services/auth/authentication.service';

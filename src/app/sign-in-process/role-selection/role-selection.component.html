@@ -24,13 +24,13 @@
     </p>
 
     <p class="img_wrapper" *ngIf="role.isPatients()">
-      <img src="http://localhost/image/signup/patient2.png">
+      <img src="http://localhost:5000/image/signup/patient2.png">
       <span>
         <input routerLink="/patients-dashboard" type="button" value="Patient">
       </span>
     </p>
 
-    <p class="img_wrapper">
+    <p class="img_wrapper" [hidden] = "AllTrue">
         <img src="http://localhost:5000/image/signup/newuser.png">
         <span>
           <input routerLink="/existing-user" type="button" value="New Role">
