@@ -3,6 +3,7 @@ import { AuthenticationService } from './../../services/auth/authentication.serv
 import { SqlpostService } from './../../services/SQL-post/sqlpost.service';
 import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-signup-nurse',
@@ -28,7 +29,8 @@ export class SignupNurseComponent {
   constructor(
     private service: SqlpostService,
     private auth: AuthenticationService,
-    private router: Router
+    private router: Router,
+    private cookieService: CookieService
   ) {}
 
   // onSubmit() { this.submitted = true; }
@@ -42,7 +44,7 @@ export class SignupNurseComponent {
         response => {
           this.checking = false;
           this.success = true; // Show the success message
-          this.auth.just_signup(response.json().token);
+          this.cookieService.set('token', response.json().token);
           this.router.navigate(['/nurse-information']);
         },
         err => {

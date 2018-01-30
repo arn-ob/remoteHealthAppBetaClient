@@ -5,6 +5,7 @@ import { Http } from '@angular/http';
 import { COMPOSITION_BUFFER_MODE } from '@angular/forms/src/directives/default_value_accessor';
 import { SqlpostService } from '../../services/SQL-post/sqlpost.service';
 import { ValidationCheckService } from '../../services/validation-check/validation-check.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-signup-doctor',
@@ -32,7 +33,8 @@ export class SignupDoctorComponent {
     private service: SqlpostService,
     private router: Router,
     private auth: AuthenticationService,
-    private uservalidation: ValidationCheckService
+    private uservalidation: ValidationCheckService,
+    private cookieService: CookieService
   ) { }
 
   // onSubmit() { this.submitted = true; }
@@ -47,7 +49,8 @@ export class SignupDoctorComponent {
         response => {
           this.checking = false;
           this.success = true; // Show the success message
-          this.auth.just_signup(response.json().token);
+          console.log(response.json().token);
+          this.cookieService.set('token', response.json().token);
           this.router.navigate(['/doctor-information']);
         },
         err => {
