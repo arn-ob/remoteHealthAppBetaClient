@@ -37,7 +37,7 @@ export class SigninComponent implements OnDestroy {
     private location: Location,
     private cookieService: CookieService,
     private authenticationService: AuthenticationService
-  ) {}
+  ) { }
 
   // onSubmit() { this.submitted = true; }
 
@@ -46,37 +46,40 @@ export class SigninComponent implements OnDestroy {
 
     this.Requested = false;
     this.checkingReq = true;
-    const data = { email: this.email, password: this.password};
+    const data = { email: this.email, password: this.password };
 
     // console.log(data);
 
     this.subscription = this.service.postRequest('login', data).subscribe(
-    response => {
-      if (response.json().token === null) {
+      response => {
+        if (response.json().token === null) {
           this.Requested = true;
           this.user_not_found = true;
 
-      }else {
+        } else {
 
           // this.success = true; // Show the success message
           this.msg = 'Please Wait for Conformation';
           console.log(response.json().token);
-          this.cookieService.set('token', response.json().token);
+          this.authenticationService.save_token(response.json().token);
           this.authenticationService.sign_in();
+          // this.router.navigate(['/select-role']);
         }
       },
       err => {
-          this.Server_Error = true;
-          this.Requested = true;
-          this.checkingReq = false;
-          this.msg = 'Somthing got error please try again later';
-          console.log(err);
+        this.Server_Error = true;
+        this.Requested = true;
+        this.checkingReq = false;
+        this.msg = 'Somthing got error please try again later';
+        console.log(err);
       }
     );
   }
 
   ngOnDestroy() {
-    console.log('Unsubscribe For login subscription');
-    this.subscription.unsubscribe();
+    if (this.subscription != null) {
+      this.subscription.unsubscribe();
+      console.log('Unsubscribe For login subscription');
+    }
   }
 }

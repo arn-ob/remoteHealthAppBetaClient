@@ -65,42 +65,43 @@ export class ExistingUserNewUserRegComponent implements OnDestroy {
   }
 
   Request() {
-    const store_id = this.auth.give_req_id_from_token();
-    console.log(store_id);
+    const store_id = this.auth.give_decode_token().reg_id;
+    // console.log(store_id);
 
     if (this.selected_role === 'patients') {
-
+      // Patients sign up at existing user role
       const data = {
-      reg_id: store_id,
-      first_name: this.first_name,
-      last_name: this.last_name,
-      title_prefix: this.title_prefix,
-      day: this.day,
-      month: this.month,
-      year: this.year,
-      con_number: this.con_number,
-      em_number: this.em_number
-    };
+        reg_id: store_id,
+        first_name: this.first_name,
+        last_name: this.last_name,
+        title_prefix: this.title_prefix,
+        day: this.day,
+        month: this.month,
+        year: this.year,
+        con_number: this.con_number,
+        em_number: this.em_number
+      };
 
-    // Service not working. Need to set it to backend
-    console.log(data);
-    this.service.postRequest('existing-patients', data).subscribe(
-      response => {
-        if (response.json().token === null) {
+      // Service not working. Need to set it to backend
+      console.log(data);
+      this.service.postRequest('existing-patients', data).subscribe(
+        response => {
+          if (response.json().token === null) {
 
-        } else {
-          // this.success = true; // Show the success message
-          console.log(response.json().token);
-          this.auth.save_token(response.json().token);
-          this.router.navigate(['/patients-dashboard']);
-        }
-      },
-      err => {
-        console.log(err);
-      });
+          } else {
+            // this.success = true; // Show the success message
+            console.log(response.json().token);
+            this.auth.save_token(response.json().token);
+            this.router.navigate(['/patients-dashboard']);
+          }
+        },
+        err => {
+          console.log(err);
+        });
 
     } else {
 
+      // Doctor and nurse sign up in existing user role
       const data_new = {
         role: this.selected_role,
         reg_id: store_id,
@@ -116,7 +117,7 @@ export class ExistingUserNewUserRegComponent implements OnDestroy {
       };
 
       console.log(data_new);
-      this.subscription = this.service.postRequest('existing-doctor-nurse', data_new).subscribe(
+      this.service.postRequest('existing-doctor-nurse', data_new).subscribe(
         response => {
           if (response.json().token === null) {
             // send a error msg
@@ -125,11 +126,11 @@ export class ExistingUserNewUserRegComponent implements OnDestroy {
             console.log(response.json().token);
             this.auth.save_token(response.json().token);
 
-            if  (this.selected_role === 'doctor') {
+            if (this.selected_role === 'doctor') {
               this.router.navigate(['/doctor-dashboard']);
             }
 
-            if  (this.selected_role === 'nurse') {
+            if (this.selected_role === 'nurse') {
               this.router.navigate(['/nurse-dashboard']);
             }
           }
@@ -142,8 +143,10 @@ export class ExistingUserNewUserRegComponent implements OnDestroy {
 
 
   ngOnDestroy() {
-    this.subscription.unsubscribe();
+    // if (this.subscription != null) {
+    //   this.subscription.unsubscribe();
+    // }
   }
-  // console.log(this.seleced_role);
+
 }
 

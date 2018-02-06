@@ -54,10 +54,10 @@ export class NurseInformationComponent implements OnInit {
   }
 
   Request() {
-    this.store_id = this.auth.give_req_id_from_token();
+    const store_id = this.auth.give_req_id_from_token();
 
     const data = {
-      reg_id : this.store_id,
+      reg_id : store_id,
       first_name: this.first_name,
       last_name: this.last_name,
       title_prefix: this.title_prefix,

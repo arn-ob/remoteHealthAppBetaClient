@@ -10,7 +10,7 @@ export class RoleSelectService {
 
   isAdmin() {
     const get_token = this.auth.give_decode_token();
-    if (get_token.token.is_admin === 'true') {
+    if (get_token.is_admin === 'true') {
       return true;
     }else {
       return false;
@@ -20,7 +20,7 @@ export class RoleSelectService {
   isDoctor() {
     const get_token = this.auth.give_decode_token();
     // console.log(get_token);
-    if (get_token.token.is_doctor === 'true') {
+    if (get_token.is_doctor === 'true') {
       return true;
     }else {
       return false;
@@ -29,7 +29,7 @@ export class RoleSelectService {
 
   isNurse() {
     const get_token = this.auth.give_decode_token();
-    if (get_token.token.is_nurse === 'true') {
+    if (get_token.is_nurse === 'true') {
      return true;
     }else {
       return false;
@@ -38,7 +38,7 @@ export class RoleSelectService {
 
   isPatients() {
     const get_token = this.auth.give_decode_token();
-    if (get_token.token.is_patients === 'true') {
+    if (get_token.is_patients === 'true') {
       return true;
     }else {
       return false;

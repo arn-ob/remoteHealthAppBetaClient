@@ -49,9 +49,9 @@ export class SignupDoctorComponent {
         response => {
           this.checking = false;
           this.success = true; // Show the success message
-          console.log(response.json().token);
-          this.cookieService.set('token', response.json().token);
+          this.auth.save_token(response.json().token);
           this.router.navigate(['/doctor-information']);
+
         },
         err => {
           // console.log('error got: ' + err);
@@ -67,7 +67,7 @@ export class SignupDoctorComponent {
   i_agree($event) {
     console.log($event.explicitOriginalTarget.checked);
     this.disabled = $event.explicitOriginalTarget.checked;
-    if ($event.explicitOriginalTarget.checked === false) {
+    if ($event.explicitOriginalTarget.checked === true) {
       this.ifNotClick = false;
     } else {
       this.ifNotClick = true;

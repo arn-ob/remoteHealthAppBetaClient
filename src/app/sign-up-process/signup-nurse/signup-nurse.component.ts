@@ -59,9 +59,9 @@ export class SignupNurseComponent {
   i_agree($event) {
     console.log($event.explicitOriginalTarget.checked);
     this.disabled = $event.explicitOriginalTarget.checked;
-    if ($event.explicitOriginalTarget.checked === false) {
+    if ($event.explicitOriginalTarget.checked === true) {
       this.ifNotClick = false;
-    }else {
+    } else {
       this.ifNotClick = true;
     }
     console.log(this.ifNotClick);

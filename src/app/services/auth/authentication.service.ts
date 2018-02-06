@@ -22,11 +22,11 @@ export class AuthenticationService {
 
   // After sign-in page. From a valid process then nav to home page
   sign_in() {
-    const jwtHelper = new JwtHelper();
-    const token = this.cookieService.get('token');
-    const a = jwtHelper.decodeToken(token);
-    console.log('Token');
-    console.log(a.token.reg_id);
+    // const jwtHelper = new JwtHelper();
+    // const token = this.cookieService.get('token');
+    // const a = jwtHelper.decodeToken(token);
+    // console.log('Token');
+    // console.log(a.token.reg_id);
     this.router.navigate(['/select-role']);
   }
 
@@ -54,7 +54,9 @@ export class AuthenticationService {
     const jwtHelper = new JwtHelper();
     const token = this.cookieService.get('token');
     const decoded_token = jwtHelper.decodeToken(token);
-    return decoded_token;
+    console.log(' Log from give_decode_token() : ');
+    console.log(decoded_token.token);
+    return decoded_token.token;
   }
 
   // for return reg_id from token
@@ -66,10 +68,18 @@ export class AuthenticationService {
     return decoded_token.reg_id;
   }
 
+  give_req_id_from_token_for_role_update() {
+    const jwtHelper = new JwtHelper();
+    const token = this.cookieService.get('token');
+    const decoded_token = jwtHelper.decodeToken(token);
+    console.log(decoded_token.reg_id);
+    return decoded_token;
+  }
+
+  // save token and delete the existing one
   save_token(res) {
     this.cookieService.deleteAll();
     this.cookieService.set('token', res);
   }
-
 
 }

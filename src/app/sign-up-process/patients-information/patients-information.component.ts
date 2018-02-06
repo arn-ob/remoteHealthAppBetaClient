@@ -54,6 +54,7 @@ export class PatientsInformationComponent implements OnInit {
   Request() {
 
     const store_id = this.auth.give_req_id_from_token();
+
     const data = {
       reg_id: store_id,
       first_name: this.first_name,
