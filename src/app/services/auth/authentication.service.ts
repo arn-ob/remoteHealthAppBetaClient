@@ -76,10 +76,24 @@ export class AuthenticationService {
     return decoded_token;
   }
 
-  // save token and delete the existing one
+  // Save token and delete the existing one
+  // This function is use for delete previus token and store new one
   save_token(res) {
     this.cookieService.deleteAll();
     this.cookieService.set('token', res);
+  }
+
+  // this will save the user id to cookie
+  // The other component will get the token when it wanted
+  // its will visible to everywhere so i dintn't encrypt it
+  give_user_id(result) {
+    const jwtHelper = new JwtHelper();
+    const decoded_token = jwtHelper.decodeToken(result);
+    this.cookieService.set('user_id', decoded_token.token.reg_id);
+  }
+
+  give_role_type(role) {
+    this.cookieService.set('role_type', role );
   }
 
 }

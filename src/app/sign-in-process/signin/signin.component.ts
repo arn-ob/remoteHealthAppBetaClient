@@ -60,8 +60,9 @@ export class SigninComponent implements OnDestroy {
 
           // this.success = true; // Show the success message
           this.msg = 'Please Wait for Conformation';
-          console.log(response.json().token);
+          // console.log(response.json().token); // use for debug
           this.authenticationService.save_token(response.json().token);
+          this.authenticationService.give_user_id(response.json().token); // save to cookie
           this.authenticationService.sign_in();
           // this.router.navigate(['/select-role']);
         }

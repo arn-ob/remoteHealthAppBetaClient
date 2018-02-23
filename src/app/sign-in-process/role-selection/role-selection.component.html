@@ -1,41 +1,41 @@
 <div id="wrapper">
   <h2> Select Role </h2>
   <br>
-  <div id="image_div" >
+  <div id="image_div">
     <p class="img_wrapper" *ngIf="role.isAdmin()">
       <img src="http://localhost:5000/image/signup/admin.png">
       <span>
-        <input routerLink="/signup-doctor" type="button" value="Admin">
+        <input (click)="set_go(in.value,'/admin')" #in type="button" value="Admin">
       </span>
     </p>
 
     <p class="img_wrapper" *ngIf="role.isDoctor()">
       <img src="http://localhost:5000/image/signup/doctor.jpg">
       <span>
-        <input routerLink="/doctor-dashboard" type="button" value="Doctor">
+        <input (click)="set_go(in.value,'/doctor-dashboard')" #in type="button" value="Doctor">
       </span>
     </p>
 
     <p class="img_wrapper" *ngIf="role.isNurse()">
       <img src="http://localhost:5000/image/signup/nurse.png">
       <span>
-        <input routerLink="/nurse-dashboard" type="button" value="Nurse">
+        <input (click)="set_go(in.value,'/nurse-dashboard')" #in type="button" value="Nurse">
       </span>
     </p>
 
     <p class="img_wrapper" *ngIf="role.isPatients()">
       <img src="http://localhost:5000/image/signup/patient2.png">
       <span>
-        <input routerLink="/patients-dashboard" type="button" value="Patient">
+        <input (click)="set_go(in.value,'/patients-dashboard')" #in type="button" value="Patient">
       </span>
     </p>
 
-    <p class="img_wrapper" [hidden] = "AllTrue">
-        <img src="http://localhost:5000/image/signup/newuser.png">
-        <span>
-          <input routerLink="/existing-user" type="button" value="New Role">
-        </span>
-      </p>
+    <p class="img_wrapper" [hidden]="AllTrue">
+      <img src="http://localhost:5000/image/signup/newuser.png">
+      <span>
+        <input routerLink="/existing-user" type="button" value="New Role">
+      </span>
+    </p>
 
   </div>
 </div>
