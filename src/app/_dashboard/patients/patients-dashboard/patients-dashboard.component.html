@@ -1,3 +1,69 @@
-<p>
-  patients-dashboard works!
-</p>
+
+
+
+
+
+<div class="container" [hidden]="loading">
+
+  <div class="text-center mt-lg-5 ml-2">
+    <div class="loader ml-2">
+    </div>
+  </div>
+
+</div>
+
+
+
+<div [hidden]="system_part"></div>
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="patients_index.html">
+    Patients Panel
+  </a>
+  <p class="my-2 my-sm-0">Patients Name: {{user_name}}
+    <br>Patients ID: {{user_id}} </p>
+</nav>
+
+<div class="container">
+  <div role="main" class="container">
+
+    <div class="row mt-3 ml-0">
+      <a (click)="Admission_request()" class="btn btn-primary">Request Admission</a>
+      <a href="#" class="btn btn-danger ml-2">Request Doctor</a>
+    </div>
+
+    <div class="row mt-3">
+
+      <div class="col">
+        <p>Request List</p>
+        <table class="table">
+          <thead>
+            <tr>
+
+              <th scope="col">Hospital Name</th>
+              <th scope="col">Doctor Name</th>
+              <th scope="col">Nurse Name</th>
+              <th scope="col">Admission Date</th>
+              <th scope="col">View Details</th>
+
+            </tr>
+          </thead>
+          <tbody>
+          
+              <tr *ngFor="let admission of admission_list">
+                <td scope="col">{{admission.hospitals_id }}</td>
+                <td scope="col">{{admission.doctor_id}}</td>
+                <td scope="col">{{admission.nurse_id}}</td>
+                <td scope="col">{{admission.createdDate}}</td>
+                <td scope="col"><input (click)="set_go(in.name)" #in type="button" name="{{admission.reg_id}}" value="View Details"></td>
+                
+              </tr>
+          
+
+          </tbody>
+        </table>
+
+      </div>
+
+    </div>
+  </div>
+<br><br><br><br><br><br><br><br><br><br>

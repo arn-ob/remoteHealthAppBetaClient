@@ -1,3 +1,5 @@
+import { SqlGetService } from './services/SQL-get/sql-get.service';
+import { RequestPatientsDataService } from './_dashboard/patients/patients-service/request-patients-data.service';
 import { ValidationCheckService } from './services/validation-check/validation-check.service';
 import { JwtHelper } from 'angular2-jwt';
 import { AuthenticationService } from './services/auth/authentication.service';
@@ -33,6 +35,7 @@ import { ExistingUserNewUserRegComponent } from './sign-up-process/existing-user
 import { PatientsDashboardComponent } from './_dashboard/patients/patients-dashboard/patients-dashboard.component';
 import { DoctorDashboardComponent } from './_dashboard/doctor/doctor-dashboard/doctor-dashboard.component';
 import { NurseDashboardComponent } from './_dashboard/nurse/nurse-dashboard/nurse-dashboard.component';
+import { PatientsRequestComponent } from './_dashboard/patients/patients-admission-request/patients-request.component';
 
 
 const appRoutes: Routes = [
@@ -53,6 +56,7 @@ const appRoutes: Routes = [
   { path: 'doctor-dashboard', component: DoctorDashboardComponent },
   { path: 'nurse-dashboard', component: NurseDashboardComponent },
   { path: 'patients-dashboard', component: PatientsDashboardComponent },
+  { path: 'patients-admission-request', component: PatientsRequestComponent },
   { path: '**', component: NotFoundComponent }
 ];
 
@@ -78,7 +82,8 @@ const appRoutes: Routes = [
     ExistingUserNewUserRegComponent,
     PatientsDashboardComponent,
     DoctorDashboardComponent,
-    NurseDashboardComponent
+    NurseDashboardComponent,
+    PatientsRequestComponent
   ],
   imports: [
     BrowserModule,
@@ -93,11 +98,13 @@ const appRoutes: Routes = [
   ],
   providers: [
     SqlpostService,
+    SqlGetService,
     CookieService,
     AuthenticationService,
     JwtHelper,
     ValidationCheckService,
-    RoleSelectService
+    RoleSelectService,
+    RequestPatientsDataService
   ],
   bootstrap: [AppComponent]
 })

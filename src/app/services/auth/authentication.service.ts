@@ -90,6 +90,7 @@ export class AuthenticationService {
     const jwtHelper = new JwtHelper();
     const decoded_token = jwtHelper.decodeToken(result);
     this.cookieService.set('user_id', decoded_token.token.reg_id);
+    this.cookieService.set('user_name', decoded_token.token.first_name);
   }
 
   give_role_type(role) {
