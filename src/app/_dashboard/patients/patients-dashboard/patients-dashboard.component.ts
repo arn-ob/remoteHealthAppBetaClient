@@ -60,6 +60,8 @@ export class PatientsDashboardComponent implements OnInit {
   }
 
   set_go(value) {
+    this.cookieService.set('navagate-to-patients-checkup', value);
+    this.router.navigate(['/patients-checkup-request']);
     console.log(value);
   }
 }

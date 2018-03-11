@@ -1,0 +1,65 @@
+<div [hidden]="!Request">
+  <!-- Heaer Content -->
+  <nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="patients_index.html">
+      Patients
+    </a>
+    <p class="my-2 my-sm-0">Patients Name: {{user_name}}
+      <br>Patients ID: {{user_id}} </p>
+  </nav>
+
+  <div class="container">
+    <div role="main" class="container">
+      <h2 class="mt-2">Request Admission</h2>
+      <hr>
+      <div class="row mt-3 ml-0">
+        <div class="col">
+
+          <select class="custom-select custom-select-lg mb-3" #checkup (change)="set_checkup(checkup.value)">
+            <option>Select Checkup</option>
+
+            <option value="ECG">ECG</option>
+            <option value="ECG">SPO2</option>
+
+          </select>
+
+
+
+          <div class="col">
+            <p>Request List</p>
+            <div class="col mt-2">
+              <input type="text" class="form-control" placeholder="Checkup info1">
+            </div>
+            <div class="col mt-2">
+              <input type="text" class="form-control" placeholder="Checkup info1">
+            </div>
+
+            <div class="col mt-2">
+              <input type="text" class="form-control" placeholder="Checkup info1">
+            </div>
+
+            <div class="col mt-2">
+              <input type="text" class="form-control" placeholder="Checkup info1">
+            </div>
+          </div>
+          <a type="button" class="btn btn-primary btn-lg btn-block mt-4" data-toggle="modal" data-target="#myModal" (click)="submit()">Request</a>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+<!-- The Modal -->
+<div [hidden]="!success">
+  
+  
+    <div class="alert alert-primary" role="alert">
+      <p>Checkup Request Send</p>
+    </div>
+
+
+</div>
