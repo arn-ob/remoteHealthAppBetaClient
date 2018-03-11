@@ -1,0 +1,67 @@
+<!-- View Loading Simble -->
+<div class="container" *ngIf="loading">
+
+  <p>Loading</p>
+
+</div>
+
+
+
+
+<div *ngIf="is_Receive_data">
+
+  <!-- Heaer Content -->
+  <nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="doctor_index.html">
+      Doctor Panel
+    </a>
+    <p class="my-2 my-sm-0">Doctor Name: {{doctorName}}
+      <br>Doctor ID: {{doctorID}} </p>
+  </nav>
+
+  <div class="container">
+    <div role="main" class="container">
+      <h1 class="mt-5">Admission ID: {{get_admission_ID}}</h1>
+      <hr>
+      <div class="row">
+
+        <div class="col">
+          <input type="text" class="form-control" placeholder="First Name" value="{{patients_details.first_name}}" disabled>
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="Last Name" value="{{patients_details.last_name}}" disabled>
+        </div>
+
+      </div>
+
+      <div class="row mt-3">
+        <div class="col">
+          <P>Patients Admission </P>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Checkup ID</th>
+                <th scope="col">Hospital Name</th>
+                <th scope="col">Checkup Type</th>
+                <!-- <th scope="col">View Button</th> -->
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let list of patients_Checkup_details">
+                <td>{{list.admission_id}}</td>
+                <td>{{list.hospital_id}}</td>
+                <td>{{list.checkup_type}}</td>
+                 <td>
+                  <a (click)="go_to_checkup_details(checkupID.name)" #checkupID name="{{list.checkup_id}}" class="btn btn-primary">Details</a>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>

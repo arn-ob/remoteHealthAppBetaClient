@@ -1,0 +1,61 @@
+<div *ngIf="is_data_loaded">
+  <!-- Heaer Content -->
+  <nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="doctor_index.html">
+      Doctor Panel
+    </a>
+    <p class="my-2 my-sm-0">Doctor Name: {{doctorName}}
+      <br>Doctor ID: {{doctorID}} </p>
+  </nav>
+
+  <div class="container">
+    <div role="main" class="container">
+      <h1 class="mt-5">Checkup ID: 223343</h1>
+      <hr>
+      <div class="row">
+
+        <div class="col">
+          <input type="text" class="form-control" placeholder="Checkup ID" value="{{checkup_details.checkup_id}}" disabled>
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="Hospital ID" value="{{checkup_details.hospital_id}}" disabled>
+        </div>
+
+        <div class="col">
+          <input type="text" class="form-control" placeholder="Other" value="{{checkup_details.other}}" disabled>
+        </div>
+
+        <div class="col">
+          <input type="text" class="form-control" placeholder="Admission Date" value="{{checkup_details.checkup_type}}" disabled>
+        </div>
+        
+        <div class="col">
+          <input type="text" class="form-control" placeholder="Admission Date" value="{{checkup_details.CreatedDate}}" disabled>
+        </div>
+
+      </div>
+
+
+      <div class="row mt-3">
+        <div class="col">
+          <P>Checkup Result</P>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Result</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{{checkup_details.result}}</td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>

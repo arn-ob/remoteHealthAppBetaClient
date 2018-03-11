@@ -60,7 +60,7 @@ export class RoleSelectService {
     if (this.isPatients()) {
       count++;
     }
-    console.log(count);
+    // console.log(count);
     if (count === 3) {
       return true;
     } else {

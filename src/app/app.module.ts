@@ -36,6 +36,9 @@ import { PatientsDashboardComponent } from './_dashboard/patients/patients-dashb
 import { DoctorDashboardComponent } from './_dashboard/doctor/doctor-dashboard/doctor-dashboard.component';
 import { NurseDashboardComponent } from './_dashboard/nurse/nurse-dashboard/nurse-dashboard.component';
 import { PatientsRequestComponent } from './_dashboard/patients/patients-admission-request/patients-request.component';
+import { DoctorInfoEditComponent } from './_dashboard/doctor/doctor-info-edit/doctor-info-edit.component';
+import { PatientsDetailsViewComponent } from './_dashboard/doctor/patients-details-view/patients-details-view.component';
+import { PatientsCheckupDetailsComponent } from './_dashboard/doctor/patients-checkup-details/patients-checkup-details.component';
 
 
 const appRoutes: Routes = [
@@ -57,6 +60,9 @@ const appRoutes: Routes = [
   { path: 'nurse-dashboard', component: NurseDashboardComponent },
   { path: 'patients-dashboard', component: PatientsDashboardComponent },
   { path: 'patients-admission-request', component: PatientsRequestComponent },
+  { path: 'doctor-info-edit', component: DoctorInfoEditComponent },
+  { path: 'patients-details-view', component: PatientsDetailsViewComponent },
+  { path: 'patients-checkup-details', component: PatientsCheckupDetailsComponent },
   { path: '**', component: NotFoundComponent }
 ];
 
@@ -83,7 +89,10 @@ const appRoutes: Routes = [
     PatientsDashboardComponent,
     DoctorDashboardComponent,
     NurseDashboardComponent,
-    PatientsRequestComponent
+    PatientsRequestComponent,
+    DoctorInfoEditComponent,
+    PatientsDetailsViewComponent,
+    PatientsCheckupDetailsComponent
   ],
   imports: [
     BrowserModule,
