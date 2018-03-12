@@ -54,7 +54,7 @@ export class PatientsDetailsViewComponent implements OnInit {
     this.service.postRequest('get-patients-and-checkup-details', send_data).subscribe(
       response => {
           // console.log(response.json().result[0]);
-          this.patients_Checkup_details = response.json().result[0];
+          this.patients_Checkup_details = response.json().result;
 
           // data Preloading
           this.loading = false;

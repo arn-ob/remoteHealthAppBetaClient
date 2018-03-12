@@ -4,6 +4,7 @@ import { ValidationCheckService } from './services/validation-check/validation-c
 import { JwtHelper } from 'angular2-jwt';
 import { AuthenticationService } from './services/auth/authentication.service';
 import { BrowserModule } from '@angular/platform-browser';
+import { ChartsModule } from 'ng2-charts';
 
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
@@ -101,6 +102,7 @@ const appRoutes: Routes = [
     BrowserModule,
     HttpModule,
     FormsModule,
+    ChartsModule,
     RouterModule.forRoot(
       appRoutes,
       {

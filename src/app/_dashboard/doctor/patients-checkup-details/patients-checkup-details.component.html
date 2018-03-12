@@ -47,11 +47,21 @@
             </thead>
             <tbody>
               <tr>
-                <td>{{checkup_details.result}}</td>
+                <div style="width: 100%;">
+                  <canvas
+                  baseChart
+                  [chartType]="'line'"
+                  [datasets]="chartData"
+                  [labels]="chartLabels"
+                  [options]="chartOptions"
+                  [legend]="true"              >
+                  </canvas>
+                  </div>
               </tr>
 
             </tbody>
           </table>
+          <br><br><br>
         </div>
 
       </div>
