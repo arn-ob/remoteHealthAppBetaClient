@@ -1,7 +1,7 @@
 <div *ngIf="is_data_loaded">
   <!-- Heaer Content -->
   <nav class="navbar navbar-light bg-light">
-    <a class="navbar-brand" href="doctor_index.html">
+    <a class="navbar-brand" routerLink="/doctor-dashboard">
       Doctor Panel
     </a>
     <p class="my-2 my-sm-0">Doctor Name: {{doctorName}}
@@ -46,18 +46,21 @@
               </tr>
             </thead>
             <tbody>
+              <div >
               <tr>
                 <div style="width: 100%;">
                   <canvas
+                  *ngIf="ecg_data_view()"
                   baseChart
                   [chartType]="'line'"
                   [datasets]="chartData"
                   [labels]="chartLabels"
                   [options]="chartOptions"
-                  [legend]="true"              >
+                  [legend]="true" >
                   </canvas>
                   </div>
               </tr>
+            </div>
 
             </tbody>
           </table>
