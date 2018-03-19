@@ -1,3 +1,55 @@
-<p>
-  doctor-info-edit works!
-</p>
+<!-- Heaer Content -->
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" routerLink="/doctor-dashboard">
+    Doctor Panel
+  </a>
+  <p class="my-2 my-sm-0">Doctor Name: {{doctorName}}
+    <br>Doctor ID: {{doctorID}} </p>
+</nav>
+
+
+<div *ngIf="!is_data_loaded">
+  <p>Loading</p>
+</div>
+
+<div *ngIf="submit">
+    <p>Data Updated</p>
+  </div>
+  
+
+
+<div *ngIf="is_data_loaded">
+  <div class="container">
+    <div role="main" class="container">
+
+      <hr>
+      <div class="row">
+
+        <div class="col">
+          <input type="text" class="form-control" placeholder="{{doctor_details.first_name}}" [(ngModel)]="first_name" name="first_name">
+        </div>
+        <div class="col">
+          <input type="text" class="form-control"  [(ngModel)]="last_name" name="last_name" placeholder="{{doctor_details.last_name}}">
+        </div>
+
+        <div class="col">
+          <input type="text" class="form-control" [(ngModel)]="req_no" name="req_no" placeholder="{{doctor_details.registration_no}}">
+        </div>
+      </div>
+
+      <div class="row mt-2">
+        <div class="col">
+          <input type="text" class="form-control"  [(ngModel)]="user_name" name="user_name" placeholder="{{doctor_details.user_name}}">
+        </div>
+        <div class="col">
+          <input type="text" class="form-control"  value="{{doctor_details.created_date}}" disabled>
+        </div>
+        <div class="col">
+          <input type="text" class="form-control"  [(ngModel)]="date_of_birth" name="date_of_birth" placeholder="{{doctor_details.date_of_birth}}">
+        </div>
+      </div>
+      <br><br>
+      <a (click)="post_doctor_information()" class="btn btn-primary">Update Doctor Infomation</a>
+    </div>
+  </div>
+</div>

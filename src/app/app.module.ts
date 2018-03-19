@@ -41,6 +41,7 @@ import { DoctorInfoEditComponent } from './_dashboard/doctor/doctor-info-edit/do
 import { PatientsDetailsViewComponent } from './_dashboard/doctor/patients-details-view/patients-details-view.component';
 import { PatientsCheckupDetailsComponent } from './_dashboard/doctor/patients-checkup-details/patients-checkup-details.component';
 import { PatientsCheckupRequestComponent } from './_dashboard/patients/patients-checkup-request/patients-checkup-request.component';
+import { AdminDashboardComponent } from './_dashboard/admin/admin-dashboard/admin-dashboard.component';
 
 
 const appRoutes: Routes = [
@@ -66,6 +67,7 @@ const appRoutes: Routes = [
   { path: 'patients-details-view', component: PatientsDetailsViewComponent },
   { path: 'patients-checkup-details', component: PatientsCheckupDetailsComponent },
   { path: 'patients-checkup-request', component: PatientsCheckupRequestComponent },
+  { path: 'admin-dashboard', component: AdminDashboardComponent },
   { path: '**', component: NotFoundComponent }
 ];
 
@@ -96,7 +98,8 @@ const appRoutes: Routes = [
     DoctorInfoEditComponent,
     PatientsDetailsViewComponent,
     PatientsCheckupDetailsComponent,
-    PatientsCheckupRequestComponent
+    PatientsCheckupRequestComponent,
+    AdminDashboardComponent
   ],
   imports: [
     BrowserModule,

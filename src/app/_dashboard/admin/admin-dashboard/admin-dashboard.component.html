@@ -1,0 +1,72 @@
+
+  <!-- Heaer Content -->
+  <nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+      Admin
+    </a>
+    <p class="my-2 my-sm-0">Admin Name: {{adminName}}
+      <br>Admin ID: {{adminID}} </p>
+  </nav>
+
+  <div class="container">
+    <div role="main" class="container">
+      <h1 class="mt-5">Admin Panel</h1>
+      <div class="row">
+        <div class="col">
+          <P>Accepted Patients List </P>
+          <div class="table-responsive-sm">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Name</th>
+                  <th scope="col">ID</th>
+                  <th scope="col">View</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let list of patients_active_list">
+                  <td>Patient 1</td>
+                  <td>443232</td>
+                  <td>
+                    <a (click)="checkClick(in.name)" #in type="button" name="{{list.first_name}}" class="btn btn-primary">Details</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="col">
+          <p>Accepted Doctor List </p>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">ID</th>
+                <th scope="col">View</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Doctor 1</td>
+                <td>3423432</td>
+                <td>
+                  <a href="doctor_details.html" class="btn btn-primary">Details</a>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+        <div class="col">
+          <a type="button" class="btn btn-primary btn-lg btn-block" href="new_doctor_req.html">New Doctor Request</a>
+          <a type="button" class="btn btn-secondary btn-lg btn-block" href="new_patients_req.html">New Patients Request</a>
+          <a type="button" class="btn btn-success btn-lg btn-block" href="assign_list.html">Doctor Assign</a>
+          <a type="button" class="btn btn-info btn-lg btn-block" href="hospital_manage.html">Hospital Management</a>
+          <a type="button" class="btn btn-danger btn-lg btn-block" href="super_hospital.html">Super Hospital</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
