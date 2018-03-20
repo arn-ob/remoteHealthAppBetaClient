@@ -1,3 +1,4 @@
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { SqlGetService } from './services/SQL-get/sql-get.service';
 import { RequestPatientsDataService } from './_dashboard/patients/patients-service/request-patients-data.service';
 import { ValidationCheckService } from './services/validation-check/validation-check.service';
@@ -5,13 +6,17 @@ import { JwtHelper } from 'angular2-jwt';
 import { AuthenticationService } from './services/auth/authentication.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { ChartsModule } from 'ng2-charts';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatDialogModule} from '@angular/material/dialog';
+
 
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
-
 
 import { AppComponent } from './app.component';
 import { FormComponent } from './form/form.component';
@@ -42,6 +47,15 @@ import { PatientsDetailsViewComponent } from './_dashboard/doctor/patients-detai
 import { PatientsCheckupDetailsComponent } from './_dashboard/doctor/patients-checkup-details/patients-checkup-details.component';
 import { PatientsCheckupRequestComponent } from './_dashboard/patients/patients-checkup-request/patients-checkup-request.component';
 import { AdminDashboardComponent } from './_dashboard/admin/admin-dashboard/admin-dashboard.component';
+import { NewDoctorRequestComponent,
+  AllowDoctorComponent,
+  DenyDoctorComponent } from './_dashboard/admin/new-doctor-request/new-doctor-request.component';
+import { NewPatientsRequestComponent,
+        AllowComponent,
+        DenyComponent } from './_dashboard/admin/new-patients-request/new-patients-request.component';
+import { AssignDoctorPatientsComponent } from './_dashboard/admin/assign-doctor-patients/assign-doctor-patients.component';
+
+
 
 
 const appRoutes: Routes = [
@@ -68,6 +82,8 @@ const appRoutes: Routes = [
   { path: 'patients-checkup-details', component: PatientsCheckupDetailsComponent },
   { path: 'patients-checkup-request', component: PatientsCheckupRequestComponent },
   { path: 'admin-dashboard', component: AdminDashboardComponent },
+  { path: 'new-doctor-request', component: NewDoctorRequestComponent},
+  { path: 'new-patients-request', component: NewPatientsRequestComponent},
   { path: '**', component: NotFoundComponent }
 ];
 
@@ -99,13 +115,31 @@ const appRoutes: Routes = [
     PatientsDetailsViewComponent,
     PatientsCheckupDetailsComponent,
     PatientsCheckupRequestComponent,
-    AdminDashboardComponent
+    AdminDashboardComponent,
+    NewDoctorRequestComponent,
+    NewPatientsRequestComponent,
+    AllowComponent,
+    DenyComponent,
+    AllowDoctorComponent,
+    DenyDoctorComponent,
+    AssignDoctorPatientsComponent
+  ],
+  entryComponents: [
+    NewDoctorRequestComponent,
+    NewPatientsRequestComponent,
+    AllowComponent,
+    DenyComponent,
+    AllowDoctorComponent,
+    DenyDoctorComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
     FormsModule,
     ChartsModule,
+    BrowserAnimationsModule,
+    MatSnackBarModule,
+    MatDialogModule,
     RouterModule.forRoot(
       appRoutes,
       {
@@ -121,7 +155,7 @@ const appRoutes: Routes = [
     JwtHelper,
     ValidationCheckService,
     RoleSelectService,
-    RequestPatientsDataService
+    RequestPatientsDataService,
   ],
   bootstrap: [AppComponent]
 })

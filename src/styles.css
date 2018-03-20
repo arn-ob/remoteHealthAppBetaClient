@@ -1,6 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
 @import "~bootstrap/dist/css/bootstrap.css";
 body{
-    background: #76b852;
-    padding: 20px;
+    /* background: #76b852;
+    padding: 20px; */
+    color: black
 }

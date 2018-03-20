@@ -28,7 +28,8 @@ export class AdminDashboardComponent implements OnInit {
   ngOnInit() {
     this.adminID = this.cookieService.get('user_id');
     this.adminName = this.cookieService.get('user_name');
-    this.get_patients_list() ;
+    this.get_patients_list();
+    this.get_doctor_list();
   }
 
   get_doctor_list() {
@@ -45,7 +46,6 @@ export class AdminDashboardComponent implements OnInit {
   get_patients_list() {
     this.sqlgetservice.getRequest('get-active-patients-list').subscribe(
       response => {
-          // console.log(response.json().result);
           this.patients_active_list = response.json().result;
       },
       err => {

@@ -1,0 +1,50 @@
+ <!-- Heaer Content -->
+ <nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="admin_index.html">
+      Admin
+  </a>
+  <p class="my-2 my-sm-0">Admin Name: {{adminName}}
+    <br>Admin ID: {{adminID}} </p>
+</nav>
+
+<div class="container">
+  <main role="main" class="container">
+      <h1 class="mt-5">New Patients Request</h1>
+      <hr>
+
+      <div class="row mt-3" *ngIf="Loaded">
+          <div class="col">
+          <p>Request List</p>
+              <table class="table">
+                  <thead>
+                      <tr>
+                          <th scope="col">Patients Name</th>
+                          <th scope="col">Patients Reg Number</th>
+                          <th scope="col">View Details</th>
+                          <th scope="col">Accept/Deny</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let list of request_patients_list" @fade>
+
+                      <td>{{list.first_name}} {{list.last_name}}</td>
+                      <td>{{list.registration_no}}</td>
+                      <td>
+                        <a (click)="details(detls.name)" #detls type="button" name="{{list.reg_id}}" class="btn btn-primary">Details</a>
+                      </td>
+                      <td>
+                        <a (click)="accept(act.name)" mat-raised-button #act type="button" name="{{list.reg_id}}" class="btn btn-primary">Accept</a>
+                        <a (click)="deny(dny.name)" mat-raised-button #dny type="button" name="{{list.reg_id}}" class="btn btn-danger">Deny</a>
+                      </td>
+                    </tr>
+
+                  </tbody>
+              </table>
+          </div>
+
+      </div>
+
+  </main>
+</div>
+
+<br><br><br><br><br><br>

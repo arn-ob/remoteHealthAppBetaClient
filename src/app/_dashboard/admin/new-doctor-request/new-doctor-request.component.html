@@ -1,0 +1,49 @@
+<!-- Heaer Content -->
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" routerLink="/admin_dashboard">
+    Admin
+  </a>
+  <p class="my-2 my-sm-0">Admin Name: {{adminName}}
+    <br>Admin ID: {{adminID}} </p>
+</nav>
+
+<div class="container">
+  <div role="main" class="container">
+    <h1 class="mt-5">New Doctor Request</h1>
+    <hr>
+
+    <div class="row mt-3" *ngIf="Loaded">
+      <div class="col">
+        <p>Request List</p>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Doctor Name</th>
+              <th scope="col">Doctor Reg Number</th>
+              <th scope="col">View Details</th>
+              <th scope="col">Accept/Deny</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let list of request_doctor_list">
+
+              <td>{{list.first_name}} {{list.last_name}}</td>
+              <td>{{list.registration_no}}</td>
+              <td>
+                <a (click)="details(detls.name)" #detls type="button" name="{{list.reg_id}}" class="btn btn-primary">Details</a>
+              </td>
+              <td>
+                <a (click)="accept(act.name)" #act type="button" name="{{list.reg_id}}" class="btn btn-primary">Accept</a>
+                <a (click)="deny(dny.name)" #dny type="button" name="{{list.reg_id}}" class="btn btn-danger">Deny</a>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+<br><br><br><br><br><br><br>

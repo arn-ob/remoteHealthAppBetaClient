@@ -1,0 +1,49 @@
+ <!-- Heaer Content -->
+ <nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="admin_index.html">
+        Admin
+    </a>
+    <p class="my-2 my-sm-0">Admin Name: {{adminName}}
+            <br>Admin ID: {{adminID}} </p>
+</nav>
+
+<div class="container">
+    <div role="main" class="container">
+
+        <div class="row mt-3">
+            <div class="col">
+                <h3>Assign Patients List </h3>
+                <table class="table">
+                    <thead>
+                        <tr>
+                          
+                            <th scope="col">Select Patients </th>
+                            <th scope="col">Select Doctor</th>
+                            <th scope="col">Assign</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            
+                            <td>
+                                <select class="custom-select custom-select-lg mb-3" #patients (change)="set_patients_id(patients.value)">
+                                        <option *ngFor="let patients of patients_list" value="{{patients.req_id}}">{{patients.firstname}} {{patients.lastname}}</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="custom-select custom-select-lg mb-3" #doctor (change)="set_doctor_id(doctor.value)">
+                                        <option *ngFor="let doctor of doctor_list" value="{{doctor.req_id}}">{{doctor.firstname}} {{doctor.lastname}}</option>
+                                </select>
+                            </td>
+                            <td>
+                                <a type="button" class="btn btn-primary" (click)="assign()">Assign</a>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>
