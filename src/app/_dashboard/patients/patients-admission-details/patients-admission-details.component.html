@@ -1,0 +1,35 @@
+<!-- Heaer Content -->
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand">
+    Patients Panel
+  </a>
+  <p class="my-2 my-sm-0">Patients Name: {{user_name}}
+    <br>Patients ID: {{user_id}} </p>
+</nav>
+
+<div class="container">
+  <div role="main" class="container">
+    <h1 class="mt-5">Patients Admission Information</h1>
+    <hr>
+
+
+    <div class="row mt-3">
+      <div class="col">
+
+        <p>Those info are based on info type</p>
+        <div class="col mt-2">
+          <input type="text" class="form-control" placeholder="{{admission_details.doctor_id}}">
+        </div>
+        <div class="col mt-2">
+          <input type="text" class="form-control" placeholder="{{admission_details.hospitals_id}}">
+        </div>
+
+        <div class="col mt-2">
+          <input type="text" class="form-control" placeholder="{{admission_details.status}}">
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>

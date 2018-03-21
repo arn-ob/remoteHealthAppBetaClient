@@ -17,7 +17,8 @@ export class PatientsDashboardComponent implements OnInit {
   // content view
   system_part= false;
   loading = true;
-
+  user_id = 'No ID Found';
+  user_name = 'No name Found';
   // Store checkup details which came from database
   admission_list = [];
 
@@ -28,10 +29,6 @@ export class PatientsDashboardComponent implements OnInit {
     private get_req_service: SqlGetService,
     private router: Router
   ) { }
-
-  user_id = 'No ID Found';
-  user_name = 'No name Found';
-
 
   ngOnInit() {
     this.request_patients_admission_list();
@@ -59,9 +56,8 @@ export class PatientsDashboardComponent implements OnInit {
      this.router.navigate(['/patients-admission-request']);
   }
 
-  set_go(value) {
-    this.cookieService.set('navagate-to-patients-checkup', value);
-    this.router.navigate(['/patients-checkup-request']);
-    console.log(value);
+  details_of_admission(value) {
+    this.cookieService.set('navagate-to-patients-admission-details', value);
+    this.router.navigateByUrl('/patients-admission-details');
   }
 }

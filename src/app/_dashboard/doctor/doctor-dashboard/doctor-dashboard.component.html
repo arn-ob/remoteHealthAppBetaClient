@@ -12,7 +12,7 @@
 
     <div class="row mt-3 ml-0">
       <a (click)="goto_doctor_edit()" class="btn btn-primary">Doctor Infomation Edit</a>
-      <a href="previous_patients_details.html" class="btn btn-danger ml-2">Previous Admission History</a>
+      <!-- <a href="#" class="btn btn-danger ml-2">Previous Admission History</a> -->
     </div>
 
     <div class="row mt-3">
@@ -35,7 +35,7 @@
                 <td scope="col">{{list.firstName}} {{list.lastName}}</td>
                 <td scope="col">{{list.admission_id}}</td>
                 <td scope="col">{{list.createdDate}}</td>
-                <td scope="col"><input (click)=" goto_patients_details(in.name)" #in type="button" name="{{list.admission_id}}" value="View Details"></td>
+                <td scope="col"><input class="btn btn-success" (click)=" goto_patients_details(in.name)" #in type="button" name="{{list.admission_id}}" value="View Details"></td>
                 
               </tr>
             

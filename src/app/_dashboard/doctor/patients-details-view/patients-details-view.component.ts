@@ -15,7 +15,7 @@ export class PatientsDetailsViewComponent implements OnInit {
   doctorName = 'Not Found';
   doctorID = 'Not Found';
   is_Receive_data = false;
-  loading = true;
+  loading = false;
   patients_details: any[];
   patients_Checkup_details: any[];
 
@@ -36,6 +36,7 @@ export class PatientsDetailsViewComponent implements OnInit {
   }
 
   get_admission_information() {
+    this.loading = true;
     const send_data = { reg_id: this.get_admission_ID};
     this.service.postRequest('get-patients-and-admission-details', send_data).subscribe(
       response => {

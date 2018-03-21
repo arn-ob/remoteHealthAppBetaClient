@@ -1,4 +1,3 @@
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { SqlGetService } from './services/SQL-get/sql-get.service';
 import { RequestPatientsDataService } from './_dashboard/patients/patients-service/request-patients-data.service';
 import { ValidationCheckService } from './services/validation-check/validation-check.service';
@@ -8,8 +7,40 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ChartsModule } from 'ng2-charts';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
-import {MatDialogModule} from '@angular/material/dialog';
+import {
+  MatAutocompleteModule,
+  MatButtonModule,
+  MatButtonToggleModule,
+  MatCardModule,
+  MatCheckboxModule,
+  MatChipsModule,
+  MatDatepickerModule,
+  MatDialogModule,
+  MatDividerModule,
+  MatExpansionModule,
+  MatGridListModule,
+  MatIconModule,
+  MatInputModule,
+  MatListModule,
+  MatMenuModule,
+  MatNativeDateModule,
+  MatPaginatorModule,
+  MatProgressBarModule,
+  MatProgressSpinnerModule,
+  MatRadioModule,
+  MatRippleModule,
+  MatSelectModule,
+  MatSidenavModule,
+  MatSliderModule,
+  MatSlideToggleModule,
+  MatSnackBarModule,
+  MatSortModule,
+  MatStepperModule,
+  MatTableModule,
+  MatTabsModule,
+  MatToolbarModule,
+  MatTooltipModule,
+} from '@angular/material';
 
 
 import { NgModule } from '@angular/core';
@@ -48,13 +79,13 @@ import { PatientsCheckupDetailsComponent } from './_dashboard/doctor/patients-ch
 import { PatientsCheckupRequestComponent } from './_dashboard/patients/patients-checkup-request/patients-checkup-request.component';
 import { AdminDashboardComponent } from './_dashboard/admin/admin-dashboard/admin-dashboard.component';
 import { NewDoctorRequestComponent,
-  AllowDoctorComponent,
-  DenyDoctorComponent } from './_dashboard/admin/new-doctor-request/new-doctor-request.component';
+          AllowDoctorComponent,
+          DenyDoctorComponent } from './_dashboard/admin/new-doctor-request/new-doctor-request.component';
 import { NewPatientsRequestComponent,
-        AllowComponent,
-        DenyComponent } from './_dashboard/admin/new-patients-request/new-patients-request.component';
-import { AssignDoctorPatientsComponent } from './_dashboard/admin/assign-doctor-patients/assign-doctor-patients.component';
-
+          AllowComponent,
+          DenyComponent } from './_dashboard/admin/new-patients-request/new-patients-request.component';
+import { HospitalManageComponent, HospitallAddComponent } from './_dashboard/admin/hospital-manage/hospital-manage.component';
+import { PatientsAdmissionDetailsComponent } from './_dashboard/patients/patients-admission-details/patients-admission-details.component';
 
 
 
@@ -84,6 +115,8 @@ const appRoutes: Routes = [
   { path: 'admin-dashboard', component: AdminDashboardComponent },
   { path: 'new-doctor-request', component: NewDoctorRequestComponent},
   { path: 'new-patients-request', component: NewPatientsRequestComponent},
+  { path: 'hospital-manage', component: HospitalManageComponent},
+  { path: 'patients-admission-details', component: PatientsAdmissionDetailsComponent},
   { path: '**', component: NotFoundComponent }
 ];
 
@@ -122,7 +155,9 @@ const appRoutes: Routes = [
     DenyComponent,
     AllowDoctorComponent,
     DenyDoctorComponent,
-    AssignDoctorPatientsComponent
+    HospitalManageComponent,
+    HospitallAddComponent,
+    PatientsAdmissionDetailsComponent
   ],
   entryComponents: [
     NewDoctorRequestComponent,
@@ -130,7 +165,9 @@ const appRoutes: Routes = [
     AllowComponent,
     DenyComponent,
     AllowDoctorComponent,
-    DenyDoctorComponent
+    DenyDoctorComponent,
+    HospitalManageComponent,
+    HospitallAddComponent
   ],
   imports: [
     BrowserModule,

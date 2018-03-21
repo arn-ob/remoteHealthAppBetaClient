@@ -1,6 +1,5 @@
 import { SqlGetService } from './../../../services/SQL-get/sql-get.service';
 import { CookieService } from 'ngx-cookie-service';
-import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { SqlpostService } from '../../../services/SQL-post/sqlpost.service';
@@ -21,7 +20,6 @@ export class AdminDashboardComponent implements OnInit {
     private sqlpostserice: SqlpostService,
     private sqlgetservice: SqlGetService,
     private router: Router,
-    private location: Location,
     private cookieService: CookieService
   ) { }
 

@@ -16,7 +16,7 @@
 
 <div [hidden]="system_part"></div>
 <nav class="navbar navbar-light bg-light">
-  <a class="navbar-brand" href="patients_index.html">
+  <a class="navbar-brand" href="#">
     Patients Panel
   </a>
   <p class="my-2 my-sm-0">Patients Name: {{user_name}}
@@ -54,7 +54,7 @@
                 <td scope="col">{{admission.doctor_id}}</td>
                 <td scope="col">{{admission.nurse_id}}</td>
                 <td scope="col">{{admission.createdDate}}</td>
-                <td scope="col"><input (click)="set_go(in.name)" #in type="button" name="{{admission.admission_id}}" value="View Details"></td>
+                <td scope="col"><input class="btn btn-success" (click)="details_of_admission(in.name)" #in type="button" name="{{admission.admission_id}}" value="View Details"></td>
                 
               </tr>
           

@@ -1,0 +1,50 @@
+<!-- Heaer Content -->
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" routerLink="/admin-dashboard">
+    Admin
+  </a>
+  <p class="my-2 my-sm-0">Admin Name: {{adminName}}
+    <br>Admin ID: {{adminID}} </p>
+</nav>
+
+<div class="container">
+  <div role="main" class="container">
+    <h1 class="mt-5">Hospital Management</h1>
+    <hr>
+    <div class="row mt-3 ml-0">
+      <a (click)="new_hospital()" class="btn btn-primary">Add New Hospital</a>
+
+    </div>
+    <div class="row mt-3" *ngIf="Loaded"> 
+      <div class="col">
+        <p>Request List</p>
+        <table class="table">
+          <thead>
+            <tr>
+
+              <th scope="col">Hospital Name</th>
+              <th scope="col">Hospital Reg Number</th>
+              <th scope="col">Edit</th>
+              <th scope="col">Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let list of hospital_list">
+              <td>{{list.hospital_name}}</td>
+              <td>{{list.reg_no}}</td>
+              <td>
+                <a (click)="edit(in.name)" #in type="button" name="{{list.hospitals_id}}" class="btn btn-primary">Edit</a>
+              </td>
+              <td>
+                <a (click)="delete(in.name)" #in type="button" name="{{list.hospitals_id}}" class="btn btn-primary">Delete</a>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+  </div>
+</div>
