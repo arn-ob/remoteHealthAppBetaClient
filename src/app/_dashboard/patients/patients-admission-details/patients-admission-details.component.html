@@ -1,3 +1,4 @@
+<div *ngIf = "!loading">
 <!-- Heaer Content -->
 <nav class="navbar navbar-light bg-light">
   <a class="navbar-brand">
@@ -32,4 +33,9 @@
 
     </div>
   </div>
+</div>
+</div>
+
+<div *ngIf = "loading">
+  <p>Loading</p>
 </div>

@@ -13,7 +13,7 @@ export class PatientsAdmissionDetailsComponent implements OnInit {
   user_name = 'No name Found';
   get_admission_ID: any;
   admission_details: any[];
-  loading= true;
+  loading;
   constructor(
     private cookieService: CookieService,
     private get_req_service: SqlGetService,
@@ -21,6 +21,7 @@ export class PatientsAdmissionDetailsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.loading = true;
     this.user_name = this.cookieService.get('user_name');
     this.user_id = this.cookieService.get('user_id');
     this.get_admission_ID = this.cookieService.get('navagate-to-patients-admission-details');
@@ -28,7 +29,6 @@ export class PatientsAdmissionDetailsComponent implements OnInit {
   }
 
   get_admission_information2() {
-    this.loading = true;
     const send_data = { reg_id: this.get_admission_ID};
     this.service2.postRequest('get-patients-and-admission-details', send_data).subscribe(
       response => {
