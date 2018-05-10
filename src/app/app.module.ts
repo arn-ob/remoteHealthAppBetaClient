@@ -1,10 +1,11 @@
+import { EcgDataProcessingService } from './_dashboard/doctor/doctor-service/ecg-data-processing.service';
 import { SqlGetService } from './services/SQL-get/sql-get.service';
 import { RequestPatientsDataService } from './_dashboard/patients/patients-service/request-patients-data.service';
 import { ValidationCheckService } from './services/validation-check/validation-check.service';
 import { JwtHelper } from 'angular2-jwt';
 import { AuthenticationService } from './services/auth/authentication.service';
 import { BrowserModule } from '@angular/platform-browser';
-import { ChartsModule } from 'ng2-charts';
+import { ChartModule } from 'angular2-chartjs';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {
@@ -173,7 +174,7 @@ const appRoutes: Routes = [
     BrowserModule,
     HttpModule,
     FormsModule,
-    ChartsModule,
+    ChartModule,
     BrowserAnimationsModule,
     MatSnackBarModule,
     MatDialogModule,
@@ -193,6 +194,7 @@ const appRoutes: Routes = [
     ValidationCheckService,
     RoleSelectService,
     RequestPatientsDataService,
+    EcgDataProcessingService
   ],
   bootstrap: [AppComponent]
 })

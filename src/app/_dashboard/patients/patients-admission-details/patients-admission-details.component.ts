@@ -14,6 +14,7 @@ export class PatientsAdmissionDetailsComponent implements OnInit {
   get_admission_ID: any;
   admission_details: any[];
   loading;
+
   constructor(
     private cookieService: CookieService,
     private get_req_service: SqlGetService,

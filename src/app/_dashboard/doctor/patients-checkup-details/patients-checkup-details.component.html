@@ -10,11 +10,10 @@
 
   <div class="container">
     <div role="main" class="container">
-      <h1 class="mt-5">Checkup ID: 223343</h1>
-      <hr>
+      <h4 class="mt-5">Checkup ID: 223343</h4>
       <div class="row">
 
-        <div class="col">
+        <!-- <div class="col">
           <input type="text" class="form-control" placeholder="Checkup ID" value="{{checkup_details.checkup_id}}" disabled>
         </div>
         <div class="col">
@@ -31,35 +30,18 @@
         
         <div class="col">
           <input type="text" class="form-control" placeholder="Admission Date" value="{{checkup_details.CreatedDate}}" disabled>
-        </div>
+        </div> -->
 
       </div>
 
 
       <div class="row mt-3">
         <div class="col">
-          <P>Checkup Result</P>
+        
           <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">Result</th>
-              </tr>
-            </thead>
             <tbody>
               <div >
-              <tr>
-                <div style="width: 100%;">
-                  <canvas
-                  *ngIf="ecg_data_view()"
-                  baseChart
-                  [chartType]="'line'"
-                  [datasets]="chartData"
-                  [labels]="chartLabels"
-                  [options]="chartOptions"
-                  [legend]="true" >
-                  </canvas>
-                  </div>
-              </tr>
+                <chart [type]="type" [data]="data" [options]="options"></chart>
             </div>
 
             </tbody>
