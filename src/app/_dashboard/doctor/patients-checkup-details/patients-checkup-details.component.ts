@@ -28,6 +28,7 @@ export class PatientsCheckupDetailsComponent implements OnInit {
   check = false;
   show_ecg = [];
   last_count = 0;
+  qrs_number;
   /// Var for ecg
   is_data_loaded = false;
   constructor(
@@ -36,7 +37,8 @@ export class PatientsCheckupDetailsComponent implements OnInit {
     private ecg: EcgDataProcessingService
   ) {
      setInterval(() => { this.get_ecg_data();
-      this.drawGraphn(); },  60 * 60);
+    this.drawGraphn();
+  },  60 * 60);
   }
 
 
@@ -47,7 +49,7 @@ export class PatientsCheckupDetailsComponent implements OnInit {
     this.doctorName = this.cookieservice.get('user_name');
     this.get_this_checkup_details();
     this.chartFunc();
-    this.drawGraphn();
+
   }
 
 
@@ -102,10 +104,11 @@ export class PatientsCheckupDetailsComponent implements OnInit {
     for (let i = 0; i < this.datas.length; i++) {
 
       temp.push(this.datas[i]);
-      console.log('test 1');
       for (let j = 0; j < temp.length; j++) {
         ecg_data.push(temp[j]);
         if (i === 0) {
+          console.log('intor qrs');
+          console.log(temp[j]);
           qrs_data.push(temp[j]);
         }
       }
@@ -124,11 +127,17 @@ export class PatientsCheckupDetailsComponent implements OnInit {
     //   console.log(ecg_data);
     // }
 
+    if (this.qrs_number === 0) {
+      this.ecg.init(qrs_data);
+      this.qrs_number++;
+    } else {
+      this.ecg.update(qrs_data);
+      this.qrs_number = this.ecg.QRS();
+    }
+
     // for ecg data limit
     for (let k = 0; k < 700; k++) {
       show_ecg_temp.push(ecg_data[k]);
-
-
     }
     // console.log('Data To View');
     // console.log(show_ecg);
@@ -147,7 +156,7 @@ export class PatientsCheckupDetailsComponent implements OnInit {
       labels: this.show_ecg,
       datasets: [
         {
-          label: 'hy',
+          label: this.qrs_number + ' ' + 'pm',
           data: this.show_ecg,
           fill: false,
         }

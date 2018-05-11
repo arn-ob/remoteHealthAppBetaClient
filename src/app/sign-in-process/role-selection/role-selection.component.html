@@ -3,35 +3,35 @@
   <br>
   <div id="image_div">
     <p class="img_wrapper" *ngIf="role.isAdmin()">
-      <img src="http://localhost:5000/image/signup/admin.png">
+      <img src="http://healthAppServer.us-east-2.elasticbeanstalk.com/image/signup/admin.png">
       <span>
         <input (click)="set_go(in.value,'/admin-dashboard')" #in type="button" value="Admin">
       </span>
     </p>
 
     <p class="img_wrapper" *ngIf="role.isDoctor()">
-      <img src="http://localhost:5000/image/signup/doctor.jpg">
+      <img src="http://healthAppServer.us-east-2.elasticbeanstalk.com/image/signup/doctor.jpg">
       <span>
         <input (click)="set_go(in.value,'/doctor-dashboard')" #in type="button" value="Doctor">
       </span>
     </p>
 
     <p class="img_wrapper" *ngIf="role.isNurse()">
-      <img src="http://localhost:5000/image/signup/nurse.png">
+      <img src="http://healthAppServer.us-east-2.elasticbeanstalk.com/image/signup/nurse.png">
       <span>
         <input (click)="set_go(in.value,'/nurse-dashboard')" #in type="button" value="Nurse">
       </span>
     </p>
 
     <p class="img_wrapper" *ngIf="role.isPatients()">
-      <img src="http://localhost:5000/image/signup/patient2.png">
+      <img src="http://healthAppServer.us-east-2.elasticbeanstalk.com/image/signup/patient2.png">
       <span>
         <input (click)="set_go(in.value,'/patients-dashboard')" #in type="button" value="Patient">
       </span>
     </p>
 
     <p class="img_wrapper" [hidden]="AllTrue">
-      <img src="http://localhost:5000/image/signup/newuser.png">
+      <img src="http://healthAppServer.us-east-2.elasticbeanstalk.com/image/signup/newuser.png">
       <span>
         <input routerLink="/existing-user" type="button" value="New Role">
       </span>

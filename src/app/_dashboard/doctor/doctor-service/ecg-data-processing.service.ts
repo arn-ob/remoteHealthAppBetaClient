@@ -166,6 +166,9 @@ export class EcgDataProcessingService {
   }
   QRS() {
     // this.return_ecg_value = Math.floor(this.qrs_count * this.FREQ / this.count * 60);
+    const qrs_value = Math.floor(this.qrs_count * this.FREQ / this.count * 60);
+    console.log('QRS()');
+    console.log(qrs_value);
     return Math.floor(this.qrs_count * this.FREQ / this.count * 60);
   }
 
