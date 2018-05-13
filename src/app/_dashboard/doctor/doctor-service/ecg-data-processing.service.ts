@@ -20,7 +20,6 @@ export class EcgDataProcessingService {
     for (let i = 0; i < new_data.length; i++) {
       this.current_data.push(new_data[i]);
       console.log('marge');
-      console.log(this.current_data);
     }
   }
 
@@ -45,7 +44,6 @@ export class EcgDataProcessingService {
         }
       }
       this.diff_arr.push(ob);
-      console.log(ob);
     }
   }
 
@@ -75,25 +73,17 @@ export class EcgDataProcessingService {
     let state = 0; // initial state
     let probable_QRS = [];
     for (let i = 1; i < this.diff_arr.length; i++) {
-
-      console.log('FindPeak function C1');
-
       const prev = this.diff_arr[i - 1];
       const curr = this.diff_arr[i];
       switch (state) {
         case 0:
           if (-1 !== curr.direction && prev.direction !== curr.direction) {
-
-            console.log('FindPeak function C2');
-
             probable_QRS.push({ diff: curr.diff, direction: curr.direction });
             state = 1;
           }
 
           break;
         case 1:
-
-          console.log('FindPeak function C3');
 
           probable_QRS.push({ diff: curr.diff, direction: curr.direction });
           if (-1 === curr.direction) {
@@ -110,9 +100,6 @@ export class EcgDataProcessingService {
               while (-1 !== probable_QRS[0].direction) {
                 probable_QRS.shift();
               }
-
-              console.log('FindPeak function C5');
-
               probable_QRS.shift();
               probable_QRS.push({ diff: curr.diff, direction: curr.direction });
             } else {
@@ -122,8 +109,6 @@ export class EcgDataProcessingService {
             }
 
           } else {
-            console.log('FindPeak function C6');
-
             probable_QRS.push({ diff: curr.diff, direction: curr.direction });
           }
           break;

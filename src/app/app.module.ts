@@ -1,3 +1,4 @@
+import { SelectdbService } from './services/selectdb/selectdb.service';
 import { EcgDataProcessingService } from './_dashboard/doctor/doctor-service/ecg-data-processing.service';
 import { SqlGetService } from './services/SQL-get/sql-get.service';
 import { RequestPatientsDataService } from './_dashboard/patients/patients-service/request-patients-data.service';
@@ -194,7 +195,8 @@ const appRoutes: Routes = [
     ValidationCheckService,
     RoleSelectService,
     RequestPatientsDataService,
-    EcgDataProcessingService
+    EcgDataProcessingService,
+    SelectdbService
   ],
   bootstrap: [AppComponent]
 })

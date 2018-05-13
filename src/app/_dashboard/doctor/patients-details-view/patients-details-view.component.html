@@ -48,8 +48,8 @@
             </thead>
             <tbody>
               <tr *ngFor="let list of patients_Checkup_details">
-                <td>{{list.admission_id}}</td>
-                <td>{{list.hospital_id}}</td>
+                <td>{{list.checkup_id}}</td>
+                <td>{{list.hospitals_id}}</td>
                 <td>{{list.checkup_type}}</td>
                  <td>
                   <a (click)="go_to_checkup_details(checkupID.name)" #checkupID name="{{list.checkup_id}}" class="btn btn-primary">Details</a>

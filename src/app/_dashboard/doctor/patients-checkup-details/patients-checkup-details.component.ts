@@ -1,8 +1,11 @@
+import { OnDestroy } from '@angular/core/src/metadata/lifecycle_hooks';
+import { Subscription } from 'rxjs/Subscription';
 import { ChartModule } from 'angular2-chartjs';
 import { EcgDataProcessingService } from './../doctor-service/ecg-data-processing.service';
 import { CookieService } from 'ngx-cookie-service';
 import { Component, OnInit, SimpleChange } from '@angular/core';
 import { SqlpostService } from '../../../services/SQL-post/sqlpost.service';
+
 
 
 @Component({
@@ -29,6 +32,7 @@ export class PatientsCheckupDetailsComponent implements OnInit {
   show_ecg = [];
   last_count = 0;
   qrs_number;
+  subscription: Subscription;
   /// Var for ecg
   is_data_loaded = false;
   constructor(
@@ -37,7 +41,7 @@ export class PatientsCheckupDetailsComponent implements OnInit {
     private ecg: EcgDataProcessingService
   ) {
      setInterval(() => { this.get_ecg_data();
-    this.drawGraphn();
+      this.drawGraphn();
   },  60 * 60);
   }
 
@@ -74,8 +78,8 @@ export class PatientsCheckupDetailsComponent implements OnInit {
 
 
   get_ecg_data() {
-    const send_data = { id: this.countD };
-    this.service.postRequest('prev-ecg-data-sending', send_data).subscribe(
+    const send_data = { checkup_id: this.get_check_ID, seq: this.countD };
+    this.subscription = this.service.postRequest('ecg-data-sending', send_data).subscribe(
       response => {
         const results = [];
         const store = response.json().result[0].data;
@@ -107,25 +111,11 @@ export class PatientsCheckupDetailsComponent implements OnInit {
       for (let j = 0; j < temp.length; j++) {
         ecg_data.push(temp[j]);
         if (i === 0) {
-          console.log('intor qrs');
-          console.log(temp[j]);
           qrs_data.push(temp[j]);
         }
       }
     }
 
-    // //if (!this.ecg.qrs) {
-    // if (!this.check) {
-    //   this.ecg.init(qrs_data);
-    //   this.check = true;
-    //   // +this.ecg.qrs = true;
-    // } else {
-    //   this.ecg.update(qrs_data);
-    //   console.log("else statement");
-    //   console.log(this.ecg.QRS());
-    //   this.datas.push(this.ecg.QRS());
-    //   console.log(ecg_data);
-    // }
 
     if (this.qrs_number === 0) {
       this.ecg.init(qrs_data);
@@ -139,13 +129,7 @@ export class PatientsCheckupDetailsComponent implements OnInit {
     for (let k = 0; k < 700; k++) {
       show_ecg_temp.push(ecg_data[k]);
     }
-    // console.log('Data To View');
-    // console.log(show_ecg);
-    // console.log('-----------------');
-    // console.log(this.datas);
     this.datas = [];
-    // console.log('After Slice');
-    // console.log(this.datas);
     this.show_ecg = show_ecg_temp;
 
   }
@@ -156,7 +140,7 @@ export class PatientsCheckupDetailsComponent implements OnInit {
       labels: this.show_ecg,
       datasets: [
         {
-          label: this.qrs_number + ' ' + 'pm',
+          label: this.qrs_number + ' ' + 'pm' + ' ' + 'Seq' + ' ' + this.countD,
           data: this.show_ecg,
           fill: false,
         }
@@ -183,4 +167,10 @@ export class PatientsCheckupDetailsComponent implements OnInit {
     };
   }
 
+  OnDestroy() {
+    if (this.subscription != null) {
+      this.subscription.unsubscribe();
+      console.log('Unsubscribe For login subscription');
+    }
+  }
 }
