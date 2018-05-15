@@ -23,10 +23,10 @@ export class PatientsCheckupDetailsComponent implements OnInit {
 
   type;
   // tslint:disable-next-line:max-line-length
-  datas = [156, 119, 110, 137, 174, 184, 158, 122, 112, 139, 177, 187, 161, 126, 116, 143, 181, 191, 166, 129, 120, 147, 184, 195, 169, 133, 123, 150, 188, 198, 172, 136, 126, 153, 190, 200, 174, 137, 128, 153, 188, 197, 169, 131, 119, 144, 178, 186, 158, 120, 109, 134, 169, 179, 151, 114, 103, 129, 166, 175, 149, 112, 101, 128, 165, 175, 149, 112, 102, 128, 165, 175];
+  datas = [0, 0, 0, 0];
   data;
   options;
-  countD = 1;
+  countD = 51000;
   count = 1;
   check = false;
   show_ecg = [];
@@ -42,7 +42,7 @@ export class PatientsCheckupDetailsComponent implements OnInit {
   ) {
      setInterval(() => { this.get_ecg_data();
       this.drawGraphn();
-  },  60 * 60);
+  },  60 * 80);
   }
 
 
@@ -61,7 +61,6 @@ export class PatientsCheckupDetailsComponent implements OnInit {
     const send_data = { reg_id: this.get_check_ID };
     this.service.postRequest('get-patients-checkup-info', send_data).subscribe(
       response => {
-        console.log(response.json().result[0]);
         this.checkup_details = response.json().result[0];
         // this.ecg_data_set = response.json().result[0].data;
         // this.is_data_loaded = true;
@@ -82,8 +81,7 @@ export class PatientsCheckupDetailsComponent implements OnInit {
     this.subscription = this.service.postRequest('ecg-data-sending', send_data).subscribe(
       response => {
         const results = [];
-        const store = response.json().result[0].data;
-
+        const store = response.json().result[0].ecg_data;
         const array = store.split(',').map(function (n) {
           return Number(n);
         });
